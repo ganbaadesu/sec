@@ -30,19 +30,19 @@ class HomeController extends Controller
     public function index()
     {
         if(Auth::user()->usertype=='Admin'){
-            return redirect(url('/admin'));
+            return app(AdminController::class)->index();
         }
         else if(Auth::user()->usertype=='Account'){
-            return redirect(url('/account'));
+            return app(AccountController::class)->index();
         }
         else if(Auth::user()->usertype=='Operator'){
-            return redirect(url('/operator'));
+            return app(OperatorController::class)->index();
         }
         else if(Auth::user()->usertype=='Cnee'){
-            return redirect(url('/cnee'));
+            return app(CneeController::class)->index();
         }
         else{
-            return redirect(url('/shipper'));
+            return app(ShipperController::class)->index();
         }
     }
 }
