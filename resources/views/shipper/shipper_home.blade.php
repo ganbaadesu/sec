@@ -1,4 +1,4 @@
-@extends('layouts/app')
+@extends('layouts/shipper_app')
 
 @section('content')
     <h1>Shipper</h1>

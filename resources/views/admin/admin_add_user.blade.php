@@ -1,5 +1,5 @@
 @extends('layouts.admin_app')
 
 @section('content')
-    <h1>Admin</h1>
+    <h1>Add user</h1>
 @endsection
