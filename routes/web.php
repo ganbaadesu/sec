@@ -17,11 +17,10 @@ Route::get('/', [HomeController::class, 'index']);
 
     Route::get('/add/user', [AdminController::class, 'add_user']);
     Route::post('/add/user', [AdminController::class, 'post_user']);
-    Route::get('/update/user', [AdminController::class, 'update_user']);
-    Route::post('/update/user', [AdminController::class, 'post_updated_user']);
+    Route::get('/update/user/permission', [AdminController::class, 'update_user_permission']);
+    Route::post('/update/user/permission', [AdminController::class, 'post_user_permission']);
     Route::get('/add/ref', [AdminController::class, 'add_ref']);
     Route::post('/add/ref', [AdminController::class, 'post_ref']);
-    Route::get('/update/ref', [AdminController::class, 'update_ref']);
     Route::post('/update/ref', [AdminController::class, '']);
 
 //Operator
