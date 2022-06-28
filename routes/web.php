@@ -22,7 +22,8 @@ Route::get('/', [HomeController::class, 'index']);
     Route::get('/add/ref', [AdminController::class, 'add_ref']);
     Route::post('/add/ref', [AdminController::class, 'post_ref']);
     Route::get('/update/ref', [AdminController::class, 'update_ref']);
-    Route::post('/update/ref', [AdminController::class, '']);
+    Route::post('/update/ref', [AdminController::class, 'post_updated_ref']);
+    
 
 //Operator
 
