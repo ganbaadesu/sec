@@ -2,13 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\AccountController;
-use App\Http\Controllers\OperatorController;
-use App\Http\Controllers\CneeController;
-use App\Http\Controllers\ShipperController;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+
 use App\Models\User;
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
