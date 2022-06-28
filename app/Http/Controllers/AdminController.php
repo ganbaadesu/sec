@@ -12,14 +12,19 @@ class AdminController extends Controller
     {
         $this->middleware('admin');
     }
-    public function index()
-    {
-        return view('admin.admin_home');
+    public function user_management(){
+        return view('admin.user_management');
     }
-    public function add_user(){
-        return view('admin.admin_add_user');
+    public function add_user(Request $request){
+        return redirect()->back()->with('success', 'Амжилттай нэмэгдлээ');
     }
-    public function post_user(Request $request){
+    public function update_user_permission(Request $request){
+        return redirec()->back()->with('success', 'Амжилттай засагдлаа');
+    }
+    public function add_ref(){
+        return view('admin.add_ref');
+    }
+    public function post_ref(Request $request){
         return redirect()->back()->with('success', 'Амжилттай нэмэгдлээ');
     }
 }

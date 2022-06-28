@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>{{config('app.name')}}</title>
-  <!-- plugins:css -->
-  <link rel="stylesheet" href={{asset("main_assets/vendors/feather/feather.css")}}>
-  <link rel="stylesheet" href={{asset("main_assets/vendors/ti-icons/css/themify-icons.css")}}>
-  <link rel="stylesheet" href={{asset("main_assets/vendors/css/vendor.bundle.base.css")}}>
-  <!-- endinject -->
-  <!-- Plugin css for this page -->
-  <link rel="stylesheet" href={{asset("main_assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css")}}>
-  <link rel="stylesheet" href={{asset("main_assets/vendors/ti-icons/css/themify-icons.css")}}>
-  <link rel="stylesheet" type="main_assets/text/css" href={{asset("js/select.dataTables.min.css")}}>
-  <!-- End plugin css for this page -->
-  <!-- inject:css -->
-  <link rel="stylesheet" href={{asset("main_assets/css/vertical-layout-light/style.css")}}>
-  <!-- endinject -->
-  <link rel="shortcut icon" href={{asset("main_assets/images/favicon.png")}}/>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{{config('app.name')}}</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href={{asset("main_assets/vendors/feather/feather.css")}}>
+    <link rel="stylesheet" href={{asset("main_assets/vendors/ti-icons/css/themify-icons.css")}}>
+    <link rel="stylesheet" href={{asset("main_assets/vendors/css/vendor.bundle.base.css")}}>
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href={{asset("main_assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css")}}>
+    <link rel="stylesheet" href={{asset("main_assets/vendors/ti-icons/css/themify-icons.css")}}>
+    <link rel="stylesheet" type="main_assets/text/css" href={{asset("js/select.dataTables.min.css")}}>
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href={{asset("main_assets/css/vertical-layout-light/style.css")}}>
+    <!-- endinject -->
+    <link rel="shortcut icon" href={{asset("main_assets/images/favicon.png")}}/>
 </head>
+
 <body>
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->

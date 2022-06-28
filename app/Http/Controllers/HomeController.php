@@ -9,40 +9,23 @@ use App\Http\Controllers\ShipperController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
+    public function __construct(){$this->middleware('auth');}
+
+    public function index(){
+        $usertype = strtolower(Auth::user()->usertype);
+        if($usertype=='admin') return app(AdminController::class)->index();
+
+        $home = $usertype.'.'.$usertype.'_home';
+        $permissions = json_decode(((DB::select("select permission from permissions where usertype=:usertype", ["usertype"=>$usertype]))[0])->permission);
+        
+        return view($home)->with("data", $permissions);
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function index()
-    {
-        if(Auth::user()->usertype=='Admin'){
-            return app(AdminController::class)->index();
-        }
-        else if(Auth::user()->usertype=='Account'){
-            return app(AccountController::class)->index();
-        }
-        else if(Auth::user()->usertype=='Operator'){
-            return app(OperatorController::class)->index();
-        }
-        else if(Auth::user()->usertype=='Cnee'){
-            return app(CneeController::class)->index();
-        }
-        else{
-            return app(ShipperController::class)->index();
-        }
+    public function post_updated_ref(Request $request){
+        return redirec()->back()->with('success', 'Амжилттай засагдлаа');
     }
 }
