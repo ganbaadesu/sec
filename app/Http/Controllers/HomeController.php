@@ -16,11 +16,10 @@ class HomeController extends Controller
     public function index(){
         $usertype = strtolower(Auth::user()->usertype);
         if($usertype=='admin') return app(AdminController::class)->index();
-
-        $home = $usertype.'.'.$usertype.'_home';
+        
         $permissions = json_decode(((DB::select("select permission from permissions where usertype=:usertype", ["usertype"=>$usertype]))[0])->permission);
         
-        return view($home)->with("data", $permissions);
+        return view('user.user')->with("data", $permissions);
     }
 
     public function post_updated_ref(Request $request){

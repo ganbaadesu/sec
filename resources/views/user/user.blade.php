@@ -1,7 +1,6 @@
-@extends('layouts/account_app')
+@extends('layouts.user_app')
 
 @section('content')
-    <h1>Account</h1>
     @foreach ($data as $item)
         <h1>{{$item}}</h1>
     @endforeach

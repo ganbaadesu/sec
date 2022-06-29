@@ -16,48 +16,38 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'first_name'=>'Admin',
-            'last_name'=>'Admin',
+            'name'=>'Admin',
             'email'=>'admin@example.com',
-            'usertype'=>'Admin',
+            'usertype'=>'admin',
             'phone'=>'+976-99999999',
-            'picture'=>'sample',
             'password'=>Hash::make('123456'),
         ]);
         DB::table('users')->insert([
-            'first_name'=>'Operator',
-            'last_name'=>'Operator',
+            'name'=>'Operator',
             'email'=>'operator@example.com',
-            'usertype'=>'Operator',
+            'usertype'=>'operator',
             'phone'=>'+976-99999999',
-            'picture'=>'sample',
             'password'=>Hash::make('123456'),
         ]);
         DB::table('users')->insert([
-            'first_name'=>'Account',
-            'last_name'=>'Account',
+            'name'=>'Account',
             'email'=>'account@example.com',
-            'usertype'=>'Account',
+            'usertype'=>'account',
             'phone'=>'+976-99999999',
-            'picture'=>'sample',
             'password'=>Hash::make('123456'),
         ]);
         DB::table('users')->insert([
-            'first_name'=>'Cnee',
-            'last_name'=>'Cnee',
+            'name'=>'Cnee',
             'email'=>'cnee@example.com',
-            'usertype'=>'Cnee',
+            'usertype'=>'cnee',
             'phone'=>'+976-99999999',
-            'picture'=>'sample',
             'password'=>Hash::make('123456'),
         ]);
         DB::table('users')->insert([
-            'first_name'=>'Shipper',
-            'last_name'=>'Shipper',
+            'name'=>'Shipper',
             'email'=>'shipper@example.com',
-            'usertype'=>'Shipper',
+            'usertype'=>'shipper',
             'phone'=>'+976-99999999',
-            'picture'=>'sample',
             'password'=>Hash::make('123456'),
         ]);
         DB::table('permissions')->insert([
