@@ -28,9 +28,8 @@
             <div class="col-lg-4 mx-auto">
               <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                 <div class="brand-logo">
-                  <img src={{asset("main_assets/images/logo.svg")}} alt="logo">
+                  <img src={{asset("images/assets/logo.png")}} alt="logo">
                     </div>
-                    <h6 class="font-weight-light">Sign in to continue.</h6>
                     <form class="pt-3" method="POST" action="{{ route('login') }}">
                         @csrf
                     <div class="form-group">

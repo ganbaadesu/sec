@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             'name'=>'Admin',
             'email'=>'admin@example.com',
             'usertype'=>'admin',
+            'profile'=>'images/profile/profile.png',
             'phone'=>'+976-99999999',
             'password'=>Hash::make('123456'),
         ]);
@@ -26,6 +27,7 @@ class DatabaseSeeder extends Seeder
             'name'=>'Operator',
             'email'=>'operator@example.com',
             'usertype'=>'operator',
+            'profile'=>'images/profile/profile.png',
             'phone'=>'+976-99999999',
             'password'=>Hash::make('123456'),
         ]);
@@ -33,6 +35,7 @@ class DatabaseSeeder extends Seeder
             'name'=>'Account',
             'email'=>'account@example.com',
             'usertype'=>'account',
+            'profile'=>'images/profile/profile.png',
             'phone'=>'+976-99999999',
             'password'=>Hash::make('123456'),
         ]);
@@ -40,6 +43,7 @@ class DatabaseSeeder extends Seeder
             'name'=>'Cnee',
             'email'=>'cnee@example.com',
             'usertype'=>'cnee',
+            'profile'=>'images/profile/profile.png',
             'phone'=>'+976-99999999',
             'password'=>Hash::make('123456'),
         ]);
@@ -47,6 +51,7 @@ class DatabaseSeeder extends Seeder
             'name'=>'Shipper',
             'email'=>'shipper@example.com',
             'usertype'=>'shipper',
+            'profile'=>'images/profile/profile.png',
             'phone'=>'+976-99999999',
             'password'=>Hash::make('123456'),
         ]);

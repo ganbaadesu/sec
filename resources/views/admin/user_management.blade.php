@@ -1,5 +1,12 @@
 @extends('layouts.admin_app')
 
 @section('content')
-    <h1>Add user</h1>
+    @foreach ($users as $user)
+        {{$user}}
+        <br>
+    @endforeach
+    @foreach ($permissions as $permission)
+        {{$permission}}
+        <br>
+    @endforeach
 @endsection

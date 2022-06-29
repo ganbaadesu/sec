@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+use App\Models\User;
+use App\Models\permissions;
+
 class AdminController extends Controller
 {
     public function __construct()
@@ -16,7 +19,9 @@ class AdminController extends Controller
         return view('admin.admin_home');
     }
     public function user_management(){
-        return view('admin.user_management');
+        $users = User::all();
+        $permissions = Permissions::all();
+        return view('admin.user_management')->with('users', $users)->with('permissions', $permissions);
     }
     public function add_user(Request $request){
         return redirect()->back()->with('success', 'Амжилттай нэмэгдлээ');

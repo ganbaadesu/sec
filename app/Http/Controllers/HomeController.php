@@ -25,4 +25,7 @@ class HomeController extends Controller
     public function post_updated_ref(Request $request){
         return redirec()->back()->with('success', 'Амжилттай засагдлаа');
     }
+    public function settings(){
+        return view('auth.settings');
+    }
 }

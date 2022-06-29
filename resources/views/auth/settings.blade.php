@@ -26,21 +26,10 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <h1 class="navbar-brand brand-logo mr-5" style="color: black">Сайн уу, {{Auth::user()->name}}</h1>
-        <img class="navbar-brand brand-logo-mini" src="{{asset(Auth::user()->profile)}}" alt="profile" height="45px" width="40px"/>
+        <a class="navbar-brand brand-logo mr-5" href="{{url('/')}}" style="color: black"><h1>Home</h1></a>
+        <a class="navbar-brand brand-logo-mini" href="{{url('/')}}"><img  src="{{asset('/images/assets/home.png')}}" alt="profile" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
-        <ul class="navbar-nav mr-lg-2">
-          <li class="nav-item nav-search d-none d-lg-block">
-            <div class="input-group">
-              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
-                <span class="input-group-text" id="search">
-                  <i class="icon-search"></i>
-                </span>
-              </div>
-            </div>
-          </li>
-        </ul>
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
@@ -73,19 +62,17 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/')}}">
-              <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
-            </a>
-          </li>
-          @yield('nav-bar')
         </ul>
       </nav>
       <!-- partial -->
       <div class="main-panel">
-        @yield('main')
+        <h1>settings</h1>
       </div>
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+        </ul>
+      </nav>
     </div>
     <!-- page-body-wrapper ends -->
   </div>
@@ -93,8 +80,6 @@
 
   <!-- plugins:js -->
   <script src={{asset("main_assets/vendors/js/vendor.bundle.base.js")}}></script>
-  <script src={{asset("main_assets/js/off-canvas.js")}}></script>
-  <script src={{asset("main_assets/js/template.js")}}></script>
 </body>
 
 </html>

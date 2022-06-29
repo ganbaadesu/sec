@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class Admin
 {
     public function handle($request, Closure $next){
-        if (Auth::user() &&  Auth::user()->usertype=='Admin') {
+        if (Auth::user() &&  Auth::user()->usertype=='admin') {
             return $next($request);
         }
         return redirect('/login');
