@@ -8,7 +8,7 @@
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="/add/ref">
+    <a class="nav-link" href="{{url('/add/ref')}}">
       <i class="icon-layout menu-icon"></i>
       <span class="menu-title">Add order</span>
     </a>
