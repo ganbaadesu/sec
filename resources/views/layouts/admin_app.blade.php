@@ -13,6 +13,12 @@
       <span class="menu-title">Add order</span>
     </a>
   </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{{url('/history')}}">
+      <i class="icon-layout menu-icon"></i>
+      <span class="menu-title">History</span>
+    </a>
+  </li>
 @endsection
 
 @section('main')

@@ -84,7 +84,9 @@
       </nav>
       <!-- partial -->
       <div class="main-panel">
-        @yield('main')
+        <div class="content-wrapper">
+          @yield('main')
+        </div>
       </div>
     </div>
     <!-- page-body-wrapper ends -->
