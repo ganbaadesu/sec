@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\order;
+use App\Models\log;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -23,8 +24,14 @@ class HomeController extends Controller
         return view('user.user')->with("data", $permissions);
     }
 
-    public function post_updated_ref(Request $request){
+    public function update_ref(Request $request, $column){
+        date_default_timezone_set('Asia/Ulaanbaatar');
         $ref = Order::find($request->id);
+        $logs->user_id = Auth::user()->id;
+        $logs->column=$column;
+        $logs->old_data=$ref->$column;
+        $logs->new_data=$request->$column;
+        Log::create($logs->all());
         $ref->update($request->all());
         return redirec()->back()->with('success', 'Амжилттай засагдлаа');
     }

@@ -15,16 +15,30 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('RefID');
-            $table->string('CntrNo');
-            $table->string('CargoName');
-            $table->string('CneeName');
-            $table->string('IncomeID');
-            $table->string('UBportID');
+            $table->string('Ref_ID')->unique();
+            $table->string('BL_No')->nullable();
+            $table->string('Cntr_No');
+            $table->string('Cargo_Name');
+            $table->string('Cnee_Name');
+            $table->string('Cnee_Phone');
+            $table->string('Port_Of_Loading');
+            $table->timestamp('Loading_date');
+            $table->string('ATA_VIA_port')->nullable();
+            $table->string('ATD_VIA_port')->nullable();
+            $table->string('Vehicle_No')->nullable();
+            $table->string('ATA_ZU')->nullable();
+            $table->string('ATD_ZU')->nullable();
+            $table->string('ZU_Vehicle_No')->nullable();
+            $table->string('ATA_FD')->nullable();
+            $table->string('Rel_Inc')->nullable();
+            $table->timestamp('Date_Release')->nullable();
+            $table->timestamp('Inst_Give_Date')->nullable();
+            $table->string('Shipper')->nullable();
+            $table->string('Agent');
             $table->string('Payment');
-            $table->string('CustomerID');
-            $table->string('ZUportID');
-            $table->string('RefType');
+            $table->string('Collect_Amount')->nullable();
+            $table->string('China_Agent');
+            $table->string('ReturnID')->foreign('id')->references('id')->nullable();
             $table->timestamps();
         });
     }

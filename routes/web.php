@@ -13,7 +13,7 @@
 
     //Home routes
         Route::get('/', [HomeController::class, 'index']);
-        Route::post('/update/ref', [HomeController::class, 'post_updated_ref']);
+        Route::post('/update/ref', [HomeController::class, 'update_ref']);
         Route::get('/settings', [HomeController::class, 'settings']);
 
     //Admin routes
@@ -24,3 +24,4 @@
         Route::post('/add/ref', [AdminController::class, 'add_ref']);
         Route::post('/add/ctnr', [AdminController::class, 'add_ctnr']);
         Route::post('/add/vehicle', [AdminController::class, 'add_vehicle']);
+        Route::get('/history', [AdminController::class, 'history']);

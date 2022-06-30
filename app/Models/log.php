@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class log extends Model
 {
     use HasFactory;
+    public $timestamps = false;
+    protected $fillable = ['user_id', 'column', 'old_data', 'new_data'];
 }

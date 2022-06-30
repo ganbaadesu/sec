@@ -14,12 +14,10 @@ class CreateContainersTable extends Migration
     public function up()
     {
         Schema::create('containers', function (Blueprint $table) {
-            $table->id();
             $table->string('CntrNo')->unique();
             $table->string('CntrSize');
             $table->string('CntrType');
             $table->string('CntrOwner');
-            $table->timestamps();
         });
     }
 

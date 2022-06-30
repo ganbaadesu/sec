@@ -7,17 +7,8 @@
     <title>{{config('app.name')}}</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href={{asset("main_assets/vendors/feather/feather.css")}}>
-    <link rel="stylesheet" href={{asset("main_assets/vendors/ti-icons/css/themify-icons.css")}}>
     <link rel="stylesheet" href={{asset("main_assets/vendors/css/vendor.bundle.base.css")}}>
-    <!-- endinject -->
-    <!-- Plugin css for this page -->
-    <link rel="stylesheet" href={{asset("main_assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css")}}>
-    <link rel="stylesheet" href={{asset("main_assets/vendors/ti-icons/css/themify-icons.css")}}>
-    <link rel="stylesheet" type="main_assets/text/css" href={{asset("js/select.dataTables.min.css")}}>
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
     <link rel="stylesheet" href={{asset("main_assets/css/vertical-layout-light/style.css")}}>
-    <!-- endinject -->
     <link rel="icon" type="image/x-icon" href={{asset("images/assets/logo.png")}}/>
 </head>
 
@@ -26,8 +17,8 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <h1 class="navbar-brand brand-logo mr-5" style="color: black">Сайн уу, {{Auth::user()->name}}</h1>
-        <img class="navbar-brand brand-logo-mini" src="{{asset(Auth::user()->profile)}}" alt="profile" height="45px" width="40px"/>
+        <img class="navbar-brand brand-logo mr-5" src="{{asset('images/assets/logo.png')}}">
+        <img class="navbar-brand brand-logo-mini" src="{{asset('images/assets/logo.png')}}"/>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <ul class="navbar-nav mr-lg-2">

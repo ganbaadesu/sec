@@ -28830,7 +28830,7 @@ div.tagsinput span.tag a {
 }
 
 .navbar .navbar-brand-wrapper .brand-logo-mini img {
-  width: calc(70px - 30px);
+  width: calc(100% - 30px);
   max-width: 100%;
   margin: auto;
 }
@@ -28844,7 +28844,7 @@ div.tagsinput span.tag a {
   color: #6C7383;
   padding-right: 2.375rem;
   padding-left: 2.375rem;
-  width: calc(100% - 235px);
+  width: 80px;
   height: 60px;
 }
 
