@@ -85,6 +85,13 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
+          @if (\Session::has('success'))
+            <div class="alert alert-success">
+                <ul>
+                    <li>{!! \Session::get('success') !!}</li>
+                </ul>
+            </div>
+          @endif
           @yield('main')
         </div>
       </div>

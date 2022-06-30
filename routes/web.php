@@ -20,5 +20,7 @@
         Route::get('/user_management', [AdminController::class, 'user_management']);
         Route::post('/add/user', [AdminController::class, 'add_user']);
         Route::post('/update/user/permission', [AdminController::class, 'update_user_permission']);
-        Route::get('/add/ref', [AdminController::class, 'add_ref']);
-        Route::post('/add/ref', [AdminController::class, 'post_ref']);
+        Route::get('/ref_management', [AdminController::class, 'ref_management']);
+        Route::post('/add/ref', [AdminController::class, 'add_ref']);
+        Route::post('/add/ctnr', [AdminController::class, 'add_ctnr']);
+        Route::post('/add/vehicle', [AdminController::class, 'add_vehicle']);

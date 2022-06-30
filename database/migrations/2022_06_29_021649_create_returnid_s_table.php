@@ -15,7 +15,6 @@ class CreateReturnIDSTable extends Migration
     {
         Schema::create('ReturnID', function (Blueprint $table) {
             $table->id();
-            $table->string('Inst_given_date');
             $table->string('Shipper');
             $table->string('Agent');
             $table->string('ReturnDate');

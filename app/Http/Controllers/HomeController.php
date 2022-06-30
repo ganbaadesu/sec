@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Http\Request;
 
 use App\Models\User;
+use App\Models\order;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -23,6 +24,8 @@ class HomeController extends Controller
     }
 
     public function post_updated_ref(Request $request){
+        $ref = Order::find($request->id);
+        $ref->update($request->all());
         return redirec()->back()->with('success', 'Амжилттай засагдлаа');
     }
     public function settings(){
