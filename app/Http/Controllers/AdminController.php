@@ -98,6 +98,7 @@ class AdminController extends Controller
         $Order->Collect_Amount = $request->Collect_Amount;
         $Order->China_Agent = $request->China_Agent;
         $Order->ReturnID = (ReturnID::create($Return->all()))->id;
+        $Order->status = 'Pending';
         Order::create($Order->all());
         return redirect()->back()->with('success', 'Амжилттай нэмэгдлээ');
     }

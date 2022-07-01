@@ -39,6 +39,7 @@ class CreateOrdersTable extends Migration
             $table->string('Collect_Amount')->nullable();
             $table->string('China_Agent');
             $table->string('ReturnID')->foreign('id')->references('id')->nullable();
+            $table->string('status');
             $table->timestamps();
         });
     }
