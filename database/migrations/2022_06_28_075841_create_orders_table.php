@@ -23,14 +23,14 @@ class CreateOrdersTable extends Migration
             $table->string('Cnee_Phone');
             $table->string('Port_Of_Loading');
             $table->timestamp('Loading_date');
-            $table->string('ATA_VIA_port')->nullable();
-            $table->string('ATD_VIA_port')->nullable();
+            $table->timestamp('ATA_VIA_port')->nullable();
+            $table->timestamp('ATD_VIA_port')->nullable();
             $table->string('Vehicle_No')->nullable();
-            $table->string('ATA_ZU')->nullable();
-            $table->string('ATD_ZU')->nullable();
+            $table->timestamp('ATA_ZU')->nullable();
+            $table->timestamp('ATD_ZU')->nullable();
             $table->string('ZU_Vehicle_No')->nullable();
-            $table->string('ATA_FD')->nullable();
-            $table->string('Rel_Inc')->nullable();
+            $table->timestamp('ATA_FD')->nullable();
+            $table->string('Rel_Ins')->nullable();
             $table->timestamp('Date_Release')->nullable();
             $table->timestamp('Inst_Give_Date')->nullable();
             $table->string('Shipper')->nullable();
@@ -39,7 +39,7 @@ class CreateOrdersTable extends Migration
             $table->string('Collect_Amount')->nullable();
             $table->string('China_Agent');
             $table->string('ReturnID')->foreign('id')->references('id')->nullable();
-            $table->string('status');
+            $table->string('status')->default('Pending');
             $table->timestamps();
         });
     }

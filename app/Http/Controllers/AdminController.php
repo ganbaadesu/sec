@@ -66,7 +66,7 @@ class AdminController extends Controller
         return view('admin.history')->with('logs', Log::all());
     }
 
-    public function post_ref(Request $request){
+    public function add_ref(Request $request){
         //ReturnID
             $Return->Vehicle_No = $request->Vehicle_No;
             $Return->Destination = $request->Destination;
@@ -89,7 +89,7 @@ class AdminController extends Controller
         $Order->ATD_ZU = $request->ATD_ZU;
         $Order->ZU_Vehicle_No = $request->ZU_Vehicle_No;
         $Order->ATA_FD = $request->ATA_FD;
-        $Order->Rel_Inc = $request->Rel_Inc;
+        $Order->Rel_Ins= $request->Rel_Inc;
         $Order->Date_Release = $request->Date_Release;
         $Order->Inst_Give_Date = $request->Inst_Give_Date;
         $Order->Shipper = $request->Shipper;
@@ -98,7 +98,6 @@ class AdminController extends Controller
         $Order->Collect_Amount = $request->Collect_Amount;
         $Order->China_Agent = $request->China_Agent;
         $Order->ReturnID = (ReturnID::create($Return->all()))->id;
-        $Order->status = 'Pending';
         Order::create($Order->all());
         return redirect()->back()->with('success', 'Амжилттай нэмэгдлээ');
     }

@@ -17,8 +17,8 @@ class CreateReturnIDSTable extends Migration
             $table->id();
             $table->string('Vehicle_No')->nullable();
             $table->string('Destination')->nullable();
-            $table->string('ATA_ZU')->nullable();
-            $table->string('ATD_ZU')->nullable();
+            $table->timestamp('ATA_ZU')->nullable();
+            $table->timestamp('ATD_ZU')->nullable();
             $table->string('Transfer_No')->nullable();
             $table->string('Free_Days')->nullable();
             $table->timestamp('Return_Date')->nullable();
