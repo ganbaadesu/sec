@@ -9,11 +9,13 @@
     <link rel="stylesheet" href={{asset("main_assets/vendors/feather/feather.css")}}>
     <link rel="stylesheet" href={{asset("main_assets/vendors/css/vendor.bundle.base.css")}}>
     <link rel="stylesheet" href={{asset("main_assets/css/vertical-layout-light/style.css")}}>
+    <link rel="stylesheet" href={{asset("main_assets/vendors/ti-icons/css/themify-icons.css")}}>
+    <link rel="stylesheet" href={{asset("css/app.css")}}>
     <link rel="icon" type="image/x-icon" href={{asset("images/assets/logo.png")}}/>
 </head>
 
-<body>
-  <div class="container-scroller">
+<body onload="set_selected()">
+  <div class="container-scroller" id="parent">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -23,10 +25,10 @@
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <ul class="navbar-nav mr-lg-2">
           <li class="nav-item nav-search d-none d-lg-block">
-            <div class="input-group">
+            <div class="input-group input-group-bordered" onclick="search_form()">
               <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
                 <span class="input-group-text" id="search">
-                  <i class="icon-search"></i>
+                  <i class="icon-search">Хайх хэсэг</i>
                 </span>
               </div>
             </div>
@@ -64,10 +66,10 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="{{url('/')}}">
+          <li class="nav-item" id="dashboard">
+            <a class="nav-link" href="/">
               <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Dashboard</span>
+              <span class="menu-title">Нүүр хуудас</span>
             </a>
           </li>
           @yield('nav-bar')
@@ -76,6 +78,9 @@
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
+          <div class="row hidden" id="hidden_form">
+            @include('search')
+          </div>
           @if (\Session::has('success'))
             <div class="alert alert-success">
                 <ul>
@@ -92,7 +97,9 @@
   <!-- container-scroller -->
 
   <!-- plugins:js -->
+  <script src={{asset("js/app.js")}}></script>
   <script src={{asset("main_assets/vendors/js/vendor.bundle.base.js")}}></script>
+  <script src={{asset("main_assets/js/hoverable-collapse.js")}}></script>
   <script src={{asset("main_assets/js/off-canvas.js")}}></script>
   <script src={{asset("main_assets/js/template.js")}}></script>
 </body>

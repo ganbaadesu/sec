@@ -17,11 +17,17 @@
         Route::get('/settings', [HomeController::class, 'settings']);
 
     //Admin routes
-        Route::get('/user_management', [AdminController::class, 'user_management']);
+        //users
+        Route::get('/user/list', [AdminController::class, 'list']);
+        Route::get('/user/add/user', [AdminController::class, 'user']);
+        Route::get('/user/permission', [AdminController::class, 'permission']);
         Route::post('/add/user', [AdminController::class, 'add_user'])->name('user');
         Route::post('/update/user/permission', [AdminController::class, 'update_user_permission'])->name('permission');
-        Route::get('/ref_management', [AdminController::class, 'ref_management']);
+        //order
+        Route::get('/add/ref', [AdminController::class, 'ref']);
         Route::post('/add/ref', [AdminController::class, 'add_ref'])->name('ref');
-        Route::post('/add/ctnr', [AdminController::class, 'add_ctnr'])->name('ctnr');
+        Route::get('/add/cntr', [AdminController::class, 'cntr']);
+        Route::post('/add/cntr', [AdminController::class, 'add_cntr'])->name('cntr');
+        Route::get('/add/vehicle', [AdminController::class, 'vehicle']);
         Route::post('/add/vehicle', [AdminController::class, 'add_vehicle'])->name('vehicle');
         Route::get('/history', [AdminController::class, 'history']);

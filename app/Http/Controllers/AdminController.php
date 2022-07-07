@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 use App\Models\User;
 use App\Models\Container;
@@ -24,22 +25,31 @@ class AdminController extends Controller
 
     public function index(){
         $orders = Order::all();
-        return view('admin.admin_home')->with('orders', $orders);
+        return view('admin.admin_home')->with('orders', $orders)->with("success", "Yes");
     }
 
-    public function user_management(){
-        $permissions = Permissions::all();
-        return view('admin.user_management')->with('permissions', $permissions);
+    public function list(){
+        $users = User::all();
+        return view('admin.user.list')->with('users', $users);
     }
+    public function user(){
+        return view('admin.user.user');
+    }
+    public function permission(){
+        $permission = Permissions::all();
+        return view('admin.user.permission')->with('permissions', $permission);
+    }
+
 
     public function add_user(Request $request){
-        try{
-            User::create($request->all());
-            return redirect()->back()->with('success', 'Амжилттай нэмэгдлээ');
-        }
-        catch(\Exception $exception){
-            return redirect()->back()->with('error', 'Something went wrong');
-        }
+        $user = (object)[];
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->usertype = $request->usertype;
+        $user->phone = $request->phone;
+        $user->password = Hash::make($request->name .'123456');
+        User::create(json_decode(json_encode($user), true));
+        return redirect("/user/add/user")->with('success', 'Амжилттай нэмэгдлээ');
     }
 
     public function update_user_permission(Request $request){
@@ -48,9 +58,20 @@ class AdminController extends Controller
         return redirec()->back()->with('success', 'Амжилттай засагдлаа');
     }
 
-    public function ref_management(){
-        return view('admin.ref_management');
+    public function ref(){
+        return view('admin.ref.ref');
     }
+
+    public function cntr(){
+        $containers = Container::all();
+        return view('admin.ref.ctnr')->with('containers', $containers);
+    }
+
+    public function vehicle(){
+        $vehicles = Vehicle::all();
+        return view('admin.ref.vehicle')->with('vehicles', $vehicles);
+    }
+
 
     public function add_cntr(Request $request){
         Container::create($request->all());
@@ -59,7 +80,7 @@ class AdminController extends Controller
 
     public function add_vehicle(Request $request){
         Vehicle::create($request->all());
-        return redirect()->back()->with('success', 'Амжилттай нэмэгдлээ');
+        return redirect("/add/vehicle")->with('success', 'Амжилттай нэмэгдлээ');
     }
 
     public function history(){

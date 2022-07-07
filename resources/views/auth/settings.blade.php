@@ -25,7 +25,7 @@
   <div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+      <div style="background-color: white" class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo mr-5" href="{{url('/')}}" style="color: black"><h1>Home</h1></a>
         <a class="navbar-brand brand-logo-mini" href="{{url('/')}}"><img  src="{{asset('/images/assets/home.png')}}" alt="profile" /></a>
       </div>
@@ -52,15 +52,12 @@
             </div>
           </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-          <span class="icon-menu"></span>
-        </button>
       </div>
     </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+      <nav style="background-color: white" class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
         </ul>
       </nav>
@@ -68,11 +65,6 @@
       <div class="main-panel">
         <h1>settings</h1>
       </div>
-      <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-        </ul>
-      </nav>
     </div>
     <!-- page-body-wrapper ends -->
   </div>
