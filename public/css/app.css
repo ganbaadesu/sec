@@ -32,3 +32,59 @@
 .button-submit{
     float: right;
 }
+.content-menu {
+    width: inherit;
+    font-family: "Nunito", sans-serif;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+.content-menu .nav {
+    overflow: hidden;
+    flex-wrap: nowrap;
+    width: inherit;
+    color: black;
+}
+.content-menu .nav .active{
+    background: #2868AE;
+}
+.content-menu .nav-link{
+    color: black ;
+}
+.content-menu .active .nav-link{
+    color: white;
+}
+.content-menu .nav-item{
+    background: #A3C2E4;
+    margin-left: 5%;
+}
+.content-menu .nav-item:hover{
+    cursor:pointer;
+}
+.permission{
+    padding-left: 3%;
+}
+.save{
+    background-color: #2868AE;
+    border-radius: 0%;
+}
+.save:hover{
+    background-color: #2868AE;
+}
+.create{
+    background-color: #D3E5F9;
+}
+.create-usertype{
+    border-radius: 4%;
+    margin-left: 2%;
+    background-color: #A3C2E4;
+}
+.create-user{
+    margin-bottom: 0%;
+    padding-top:2%;
+}
+.form-group{
+    margin-bottom: 0%;
+}
+.checked{
+    color: white;
+}

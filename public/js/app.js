@@ -30,3 +30,8 @@ function set_selected(){
     }
     dashboard.classList.remove('active');
 }
+function selection_changed(name, className, index){
+    var items = document.getElementsByName(name);
+    items.forEach(item => { if(item.classList.contains(className)) item.classList.remove(className); });
+    items[index].classList.add(className);
+}

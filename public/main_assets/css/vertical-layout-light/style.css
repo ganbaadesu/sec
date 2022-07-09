@@ -10601,6 +10601,7 @@ select.tt-hint:focus::-ms-value {
   margin-bottom: 0;
   font-size: inherit;
   line-height: 1;
+  white-space: nowrap;
 }
 
 .col-form-label-lg {
@@ -13780,7 +13781,6 @@ input[type="button"].btn-block {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid #e3e3e3;
@@ -19449,7 +19449,7 @@ h1, h2, h3, h4, h5, h6,
 p {
   font-size: 0.875rem;
   margin-bottom: .5rem;
-  line-height: 1.3rem;
+  line-height: 1;
 }
 
 h1, .h1 {
@@ -23608,7 +23608,7 @@ dl {
 ul li,
 ol li,
 dl li {
-  line-height: 1.8;
+  line-height: 1;
 }
 
 .list-ticked,
@@ -28409,6 +28409,7 @@ div.tagsinput span.tag a {
 }
 
 .main-panel {
+  margin-left: 300px;
   transition: width 0.25s ease, margin 0.25s ease;
   width: calc(100% - 300px);
   min-height: calc(100vh - 60px);
@@ -28441,6 +28442,7 @@ div.tagsinput span.tag a {
 
 /* Sidebar */
 .sidebar {
+  position: fixed;
   min-height: calc(100vh - 60px);
   background: #152A51;
   font-family: "Nunito", sans-serif;

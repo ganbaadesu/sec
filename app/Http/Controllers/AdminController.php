@@ -96,7 +96,7 @@ class AdminController extends Controller
             $Return->Transfer_No = $request->Transfer_No;
             $Return->Free_Days = $request->Free_Days;
         $Order->Ref_ID = $request->Ref_ID;
-        $Order->BL_No = $request->BL_No;
+        $Order->BI_No = $request->BL_No;
         $Order->Cntr_No = $request->Cntr_No;
         $Order->Cargo_Name = $request->Cargo_Name;
         $Order->Cnee_Name = $request->Cnee_Name;
@@ -112,7 +112,7 @@ class AdminController extends Controller
         $Order->ATA_FD = $request->ATA_FD;
         $Order->Rel_Ins= $request->Rel_Inc;
         $Order->Date_Release = $request->Date_Release;
-        $Order->Inst_Give_Date = $request->Inst_Give_Date;
+        $Order->Inst_Given_Date = $request->Inst_Given_Date;
         $Order->Shipper = $request->Shipper;
         $Order->Agent = $request->Agent;
         $Order->Payment = $request->Payment;

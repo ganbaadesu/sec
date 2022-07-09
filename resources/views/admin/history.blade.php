@@ -2,6 +2,28 @@
 
 @section('content')
 <div class="row">
+    <div class="col-lg-12">
+        <nav class="content-menu">
+            <div class="col-8 row">
+                <ul class="nav">
+                    <li class="nav-item active" name="logs_items">
+                        <p class="nav-link" onclick="selection_changed('logs_items', 'active', 0)">Өнөөдөр</p>
+                    </li>
+                    <li class="nav-item" name="logs_items">
+                        <p class="nav-link" onclick="selection_changed('logs_items', 'active', 1)">7 хоног</p>
+                    </li>
+                    <li class="nav-item" name="logs_items">
+                        <p class="nav-link" onclick="selection_changed('logs_items', 'active', 2)">14 хоног</p>
+                    </li>
+                    <li class="nav-item" name="logs_items">
+                        <p class="nav-link" onclick="selection_changed('logs_items', 'active', 3)">21 хоног</p>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="row">
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">

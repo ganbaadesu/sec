@@ -10,24 +10,51 @@
           <form class="form-sample" method="POST" action="{{route('vehicle')}}">
             @csrf
             <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-4 create-usertype row">
+                  <div class="form-group">
+                    <div class="form-check form-check-info">
+                      <label class="form-check-label checked" name="vehicletype_choice">
+                        <input type="radio" class="form-check-input checked" name="VehicleType" onclick="selection_changed('vehicletype_choice', 'checked', 0)" value="Train" checked>
+                        Train
+                      </label>
+                    </div>
+                    <div class="form-check form-check-info">
+                      <label class="form-check-label" name="vehicletype_choice">
+                        <input type="radio" class="form-check-input" name="VehicleType" onclick="selection_changed('vehicletype_choice', 'checked', 1)" value="Truck">
+                        Truck
+                      </label>
+                    </div>
+                    <div class="form-check form-check-info">
+                      <label class="form-check-label" name="vehicletype_choice">
+                        <input type="radio" class="form-check-input" name="VehicleType" onclick="selection_changed('vehicletype_choice', 'checked', 2)" value="Air-Plane">
+                        Air-Plane
+                      </label>
+                    </div>
+                    <div class="form-check form-check-info">
+                      <label class="form-check-label" name="vehicletype_choice">
+                        <input type="radio" class="form-check-input" name="VehicleType" onclick="selection_changed('vehicletype_choice', 'checked', 3)" value="Ship">
+                        Ship
+                      </label>
+                    </div>
+                  </div>
+              </div>
+              <div style="margin-left: 2%" class="col-md-7">
                 <div class="form-group row">
                   <label class="col-sm-3 col-form-label" >Vehicle No</label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" name="VehicleNo" required/>
+                    <input type="text" class="form-control create" name="VehicleNo" required/>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-6">
                 <div class="form-group row">
-                  <label class="col-sm-3 col-form-label" >Vehicle type</label>
+                  <label class="col-sm-3 col-form-label" ></label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control" name="VehicleType" required/>
                   </div>
                 </div>
-              </div>
-              <div class="col-md-12">
-                <button style="float: right" class="btn btn-primary mr-2" type="submit">Submit</button>
+                <div class="form-group row">
+                  <div class="col-md-12">
+                    <button class="button-submit col-md-8 btn btn-primary mr-2 save" type="submit">SAVE</button>
+                  </div>
+                </div>
               </div>
             </div>
           </form>
@@ -35,7 +62,8 @@
       </div>
     </div>
   </div>
-</div><div class="row">
+</div>
+<div class="row">
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
