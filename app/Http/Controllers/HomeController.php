@@ -21,7 +21,21 @@ class HomeController extends Controller
         
         $permissions = json_decode(((DB::select("select permission from permissions where usertype=:usertype", ["usertype"=>$usertype]))[0])->permission);
         
-        return view('user.user')->with("data", $permissions);
+        $data = array();
+
+        $message = NULL;
+
+        try{
+            foreach($permissions as $permission){
+                $data[$permission] = DB::select("select :column from orders", ["column"=>$permission]);
+                $data[$permission] = ["1" ,"2"];
+            }
+        }
+        catch(\Exception $e){
+            $message = 'Та зөвшөөрөлгүй байгаа тул админтай холбогдоно уу?';
+        }
+        // dd($data);
+        return view('user.user')->with("permissions", $permissions)->with('data', $data)->with('message', $message);
     }
 
     public function update_ref(Request $request, $column){

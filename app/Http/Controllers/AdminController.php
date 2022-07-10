@@ -37,8 +37,11 @@ class AdminController extends Controller
     }
     public function permission(){
         $permission = Permissions::all();
-        $usertype = 'operator';
-        return view('admin.user.permission')->with('permissions', $permission)->with('usertype', $usertype);
+        $permissions = array();
+        foreach($permission as $item){
+            $permissions[$item["usertype"]]=$item["permission"];
+        }
+        return view('admin.user.permission')->with('permissions', $permissions);
     }
 
 
@@ -48,16 +51,20 @@ class AdminController extends Controller
         $user->email = $request->email;
         $user->usertype = $request->usertype;
         $user->phone = $request->phone;
-        $user->password = Hash::make($request->name .'123456');
-        User::create(json_decode(json_encode($user), true));
+        $request->request->add(["password"=>Hash::make($request->name .'123456')]);
+        User::create($request->all());
         return redirect("/user/add/user")->with('success', 'Амжилттай нэмэгдлээ');
     }
 
     public function update_user_permission(Request $request){
-        dd($request->all());
-        $permission = Permission::find($request->id);
-        $permission->update($request->all());
-        return redirec()->back()->with('success', 'Амжилттай засагдлаа');
+        $data = $request->all();
+        try{
+            DB::table('permissions')->where('usertype', $data["usertype"])->update(['permission'=>$data["CheckBox_Permissions"]]);
+        }
+        catch(\Exception $e){
+            DB::table('permissions')->where('usertype', $data["usertype"])->update(['permission'=>NULL]);
+        }
+            return redirect()->back()->with('success', 'Амжилттай хадгалагдлаа');
     }
 
     public function ref(){

@@ -29,6 +29,10 @@ function set_selected(){
         return;
     }
     dashboard.classList.remove('active');
+    if(location.pathname == "/user/permission"){
+        var button = document.getElementById('permission_menu_operator');
+        button.click();
+    }
 }
 function selection_changed(name, className, index){
     var items = document.getElementsByName(name);
@@ -42,4 +46,13 @@ function set_usertype(){
     for(var i = 0; i < 4; i++){
         if(items[i].classList.contains('active')) usertype.value = usertypes[i];
     }
+}
+function check_permissions(permissions){
+    set_usertype();
+    var items = document.getElementsByName('CheckBox_Permissions[]');
+    items.forEach(item=> {item.checked=false;});
+    permissions.forEach(item => {
+        var ChBox = document.getElementById(item);
+        ChBox.checked = true;
+    });
 }

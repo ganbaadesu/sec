@@ -57,19 +57,19 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('permissions')->insert([
             'usertype' => 'operator',
-            'permission' => json_encode(array('operator', 'account', 'cnee', 'shipper')),
+            'permission' => json_encode(array('RefNo', 'BINo', 'CntrNo', 'CntrType')),
         ]);
         DB::table('permissions')->insert([
             'usertype' => 'account'   ,
-            'permission' => json_encode(array('account', 'cnee', 'shipper')),
+            'permission' => json_encode(array('RefNo', 'BINo', 'CntrNo')),
         ]);
         DB::table('permissions')->insert([
             'usertype' => 'cnee'      ,
-            'permission' => json_encode(array('cnee')),
+            'permission' => json_encode(array('RefNo')),
         ]);
         DB::table('permissions')->insert([
             'usertype' => 'shipper'   ,
-            'permission' => json_encode(array('shipper')),
+            'permission' => json_encode(array('Shipper')),
         ]);
     }
 }
