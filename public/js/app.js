@@ -35,3 +35,11 @@ function selection_changed(name, className, index){
     items.forEach(item => { if(item.classList.contains(className)) item.classList.remove(className); });
     items[index].classList.add(className);
 }
+function set_usertype(){
+    var items = document.getElementsByName('permission_usertype');
+    const usertypes = ['operator', 'account', 'cnee', 'shipper'];
+    var usertype=document.getElementById("usertype");
+    for(var i = 0; i < 4; i++){
+        if(items[i].classList.contains('active')) usertype.value = usertypes[i];
+    }
+}

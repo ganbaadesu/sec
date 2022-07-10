@@ -37,7 +37,8 @@ class AdminController extends Controller
     }
     public function permission(){
         $permission = Permissions::all();
-        return view('admin.user.permission')->with('permissions', $permission);
+        $usertype = 'operator';
+        return view('admin.user.permission')->with('permissions', $permission)->with('usertype', $usertype);
     }
 
 
@@ -53,6 +54,7 @@ class AdminController extends Controller
     }
 
     public function update_user_permission(Request $request){
+        dd($request->all());
         $permission = Permission::find($request->id);
         $permission->update($request->all());
         return redirec()->back()->with('success', 'Амжилттай засагдлаа');
