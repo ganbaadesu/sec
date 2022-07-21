@@ -15,13 +15,13 @@ class CreateReturnIDSTable extends Migration
     {
         Schema::create('ReturnID', function (Blueprint $table) {
             $table->id();
-            $table->string('Vehicle_No')->nullable();
+            $table->date('ReturnDate')->nullable();
+            $table->string('ReturnVehicleNo')->nullable();
             $table->string('Destination')->nullable();
-            $table->timestamp('ATA_ZU')->nullable();
-            $table->timestamp('ATD_ZU')->nullable();
-            $table->string('Transfer_No')->nullable();
-            $table->string('Free_Days')->nullable();
-            $table->timestamp('Return_Date')->nullable();
+            $table->date('Return_ATA_ZU')->nullable();
+            $table->date('Return_ATD_ZU')->nullable();
+            $table->string('TransferNo')->unique()->nullable();
+            $table->string('Alarm')->nullable();
         });
     }
 

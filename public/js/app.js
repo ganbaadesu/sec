@@ -22,7 +22,37 @@ function search_form(){
     }
     hidden.classList.add("hidden");
 }
+
+function search_date(day){
+        function subtractDays(numOfDays, date=new Date()) {
+            date.setDate(date.getDate() - numOfDays);
+            return date;
+        }
+    selection_changed('search_date_choice', 'active', day/7);
+    const now = new Date();
+    const result = subtractDays(day);
+    let year, month, days;
+    year = result.getFullYear();
+    month = result.getUTCMonth() +1;
+    days = result.getUTCDate();
+    if(month<10) month = '0'+month;
+    if(days<10) days = '0'+days;
+    const start_date = year+"-"+month+"-"+days;
+    year = now.getFullYear();
+    month = now.getUTCMonth() +1;
+    days = now.getUTCDate();
+    if(month<10) month = '0'+month;
+    if(days<10) days = '0'+days;
+    const end_date = year+"-"+month+"-"+days;
+    document.getElementById('search_date').innerHTML = start_date.replace('-','.')+"-"+end_date.replace('-','.');
+}
+
+function search(){
+    console.log('search');
+}
+
 function set_selected(){
+    search_date(0);
     var dashboard = document.getElementById('dashboard');
     if(location.pathname == "/"){
         dashboard.classList.add('active');
@@ -55,4 +85,26 @@ function check_permissions(permissions){
         var ChBox = document.getElementById(item);
         ChBox.checked = true;
     });
+}
+const edit = () => (document.getElementsByName("edit[]")).forEach(
+    item =>{item.classList.remove("disabled_edit");}
+);
+
+const check_data = (table, column, value) => {
+    if(value != ''){
+        $.ajax({
+            method:"GET",
+            url:"/api/check_data",
+            data:{"table":table, "column":column, "value":value},
+            success: function(response){
+                if(response["data"]==null){
+                    if(table == 'containers'){
+                        alert("Контайнар олдсонгүй, дахин шалгана уу...?");
+                        return;
+                    }
+                    alert("Тээврийн хэрэгсэл олдсонгүй, дахин шалгана уу...?");
+                }
+            },
+        });
+    }
 }

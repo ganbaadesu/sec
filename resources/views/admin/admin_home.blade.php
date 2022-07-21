@@ -5,13 +5,14 @@
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <p class="card-title">Orders</p>
+                <p class="card-title">Бараанууд</p>
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive">
                             <table class="table table-hover table-striped">
                                 <thead>
                                     <tr class="table-header">
+                                    <th>No</th>
                                     <th>REF No</th>
                                     <th>B/l No</th>
                                     <th>Cntr No</th>
@@ -22,40 +23,35 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Name</td>
-                                        <td>Name</td>
-                                        <td>Name</td>
-                                        <td>Name</td>
-                                        <td>Name</td>
-                                        <td>Name</td>
-                                        <td><label class="badge badge-danger">Name</label></td>
-                                        <td class="py-1">
-                                            <img src="{{asset('images/assets/Edit.png')}}" alt="Edit" onclick="">
-                                        </td>
-                                    </tr>
+                                    @php
+                                        $i = 1;
+                                    @endphp
                                     @foreach ($orders as $order)
                                         <tr>
-                                            <td>{{$order->Ref_ID}}</td>
-                                            <td>{{$order->BL_No}}</td>
-                                            <td>{{$order->Cntr_No}}</td>
-                                            <td>{{$order->Cargo_Name}}</td>
-                                            <td>{{$order->Cnee_Name}}</td>
-                                            <td>{{$order->Cnee_Phone}}</td>
-                                            @if ($order->status=='Pending')
-                                                <td class="badge badge-danger">
-                                            @endif
-                                            @if ($order->status=='Progressing')
-                                                <td class="badge badge-warning">
-                                            @endif
+                                            <td>{{$i}}</td>
+                                            <td><input type="text" name="edit[]" placeholder="{{$order->RefID}}" class="edit disabled_edit"></td>
+                                            <td><input type="text" name="edit[]" placeholder="{{$order->BINo}}" class="edit disabled_edit"></td>
+                                            <td><input type="text" name="edit[]" placeholder="{{$order->CntrNo}}" class="edit disabled_edit"></td>
+                                            <td><input type="text" name="edit[]" placeholder="{{$order->CargoName}}" class="edit disabled_edit"></td>
+                                            <td><input type="text" name="edit[]" placeholder="{{$order->CneeName}}" class="edit disabled_edit"></td>
+                                            <td><input type="text" name="edit[]" placeholder="{{$order->CneePhone}}" class="edit disabled_edit"></td>
+                                            <td>
                                             @if ($order->status=='Success')
-                                                <td class="badge badge-success">
+                                                <label class="badge badge-success">
+                                            @elseif ($order->status=='Progressing')
+                                                <label class="badge badge-warning">
+                                            @elseif ($order->status=='Pending')
+                                                <label class="badge badge-danger">
                                             @endif
-                                            {{$order->status}}</td>
+                                            {{$order->status}}
+                                            </label></td>
                                             <td class="py-1">
-                                                <img src="{{asset('images/assets/Edit')}}" alt="Edit">
+                                                <img onclick="edit()" src="{{asset('images/assets/Edit.png')}}" alt="Edit">
                                             </td>
                                         </tr>
+                                        @php
+                                            $i++;
+                                        @endphp
                                     @endforeach
                                 </tbody>
                             </table>

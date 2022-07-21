@@ -9,5 +9,6 @@ class ReturnID extends Model
 {
     use HasFactory;
     public $timestamps = false;
-    protected $fillable = ['Return_Date', 'Vehicle_No', 'Destination', 'ATA_ZU', 'ATD_ZU', 'Transfer_No', 'Free_Days'];
+    protected $table ='ReturnID';
+    protected $fillable = ['ReturnDate', 'ReturnVehicleNo', 'Destination', 'ATA_ZU', 'ATD_ZU', 'TransferNo', 'Alarm'];
 }

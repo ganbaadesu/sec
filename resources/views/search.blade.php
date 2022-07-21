@@ -1,10 +1,41 @@
 <div class="col-12 grid-margin">
     <div class="card search-content">
         <div class="card-body">
-            <h4 class="card-title">
-            Search 
-            <i class="icon-grid icon-cross button-close" onclick="search_form()"></i>
-            </h4>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="col-lg-8">
+                        <nav class="content-menu">
+                            <ul class="nav">
+                                <li class="nav-item active">
+                                    <p class="nav-link" id="search_date"></p>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <nav class="content-menu">
+                        <div class="col-9 row">
+                            <ul class="nav">
+                                <li class="nav-item active" name="search_date_choice">
+                                    <p class="nav-link search" onclick="search_date(0)">Өнөөдөр</p>
+                                </li>
+                                <li class="nav-item" name="search_date_choice">
+                                    <p class="nav-link search" onclick="search_date(7)">7 хоног</p>
+                                </li>
+                                <li class="nav-item" name="search_date_choice">
+                                    <p class="nav-link search" onclick="search_date(14)">14 хоног</p>
+                                </li>
+                                <li class="nav-item" name="search_date_choice">
+                                    <p class="nav-link search" onclick="search_date(21)">21 хоног</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
             <form class="form-sample" method="GET">
             <div class="row">
                 <div class="col-md-4">
@@ -97,7 +128,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="form-group row button-submit">
-                        <button class="btn btn-primary mr-2">Хайх</button>
+                        <p class="btn btn-primary mr-2" onclick="search()">Хайх</p>
                     </div>
                 </div>
             </div>
@@ -121,20 +152,6 @@
                                                 <th>Status</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Name</td>
-                                                    <td>Name</td>
-                                                    <td>Name</td>
-                                                    <td>Name</td>
-                                                    <td>Name</td>
-                                                    <td>Name</td>
-                                                    <td><label class="badge badge-danger">Name</label></td>
-                                                    <td class="py-1">
-                                                        <img src="{{asset('images/assets/Edit.png')}}" alt="Edit" onclick="">
-                                                    </td>
-                                                </tr>
-                                            </tbody>
                                         </table>
                                     </div>
                                 </div>

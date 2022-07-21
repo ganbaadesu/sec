@@ -88,3 +88,21 @@
 .checked{
     color: white;
 }
+.edit_row{
+    width: fit-content;
+}
+.edit::placeholder{
+    color: black;
+}
+.edit{
+    background-color: transparent;
+    color: black;
+    width: 60px;
+}
+.disabled_edit{
+    pointer-events: none;
+    border: none; 
+}
+.edit:focus{
+    border: 3px solid #555;
+}

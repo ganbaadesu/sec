@@ -5,28 +5,28 @@
         <div class="col-lg-12">
             <nav class="content-menu">
                 <div class="col-9 row">
-                        <ul class="nav">
-                            <div class="col-3">
-                                <li class="nav-item active" name="permission_usertype">
-                                    <p class="nav-link" onclick="selection_changed('permission_usertype', 'active', 0), check_permissions({{$permissions['operator']}})" id="permission_menu_operator">Operator</p>
-                                </li>
-                            </div>
-                            <div class="col-3">
-                                <li class="nav-item" name="permission_usertype">
-                                    <p class="nav-link" onclick="selection_changed('permission_usertype', 'active', 1), check_permissions({{$permissions['account']}})">Account</p>
-                                </li>
-                            </div>
-                            <div class="col-3">
-                                <li class="nav-item" name="permission_usertype">
-                                    <p class="nav-link" onclick="selection_changed('permission_usertype', 'active', 2), check_permissions({{$permissions['cnee']}})">Cnee</p>
-                                </li>
-                            </div>
-                            <div class="col-3">
-                                <li class="nav-item" name="permission_usertype">
-                                    <p class="nav-link" onclick="selection_changed('permission_usertype', 'active', 3), check_permissions({{$permissions['shipper']}})">Shipper</p>
-                                </li>
-                            </div>
-                        </ul>
+                    <ul class="nav">
+                        <div class="col-3">
+                            <li class="nav-item active" name="permission_usertype">
+                                <p class="nav-link" onclick="selection_changed('permission_usertype', 'active', 0), check_permissions({{$permissions['operator']}})" id="permission_menu_operator">Operator</p>
+                            </li>
+                        </div>
+                        <div class="col-3">
+                            <li class="nav-item" name="permission_usertype">
+                                <p class="nav-link" onclick="selection_changed('permission_usertype', 'active', 1), check_permissions({{$permissions['account']}})">Account</p>
+                            </li>
+                        </div>
+                        <div class="col-3">
+                            <li class="nav-item" name="permission_usertype">
+                                <p class="nav-link" onclick="selection_changed('permission_usertype', 'active', 2), check_permissions({{$permissions['cnee']}})">Cnee</p>
+                            </li>
+                        </div>
+                        <div class="col-3">
+                            <li class="nav-item" name="permission_usertype">
+                                <p class="nav-link" onclick="selection_changed('permission_usertype', 'active', 3), check_permissions({{$permissions['shipper']}})">Shipper</p>
+                            </li>
+                        </div>
+                    </ul>
                 </div>
             </nav>
         </div>

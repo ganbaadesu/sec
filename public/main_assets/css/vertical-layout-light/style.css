@@ -10754,7 +10754,7 @@ textarea.tt-hint {
 }
 
 .was-validated :valid ~ .valid-feedback,
-.was-validated :valid ~ .valid-tooltip,
+.was-valid :valid ~ .valid-tooltip,
 .is-valid ~ .valid-feedback,
 .is-valid ~ .valid-tooltip {
   display: block;
