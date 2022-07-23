@@ -12,18 +12,6 @@
                             </ul>
                         </nav>
                     </div>
-                    <nav class="content-menu col-lg-4">
-                        <ul class="nav">
-                            <li class="nav-item col-sm-12">
-                                <select class="form-control create" style="color: black" name="RefType">
-                                  <option>Generation</option>
-                                  <option>Japan</option>
-                                  <option>Korean</option>
-                                  <option>Export</option>
-                                </select>
-                            </li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
             <div class="row">

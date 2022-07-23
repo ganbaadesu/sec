@@ -2,6 +2,28 @@
 
 @section('content')
 <div class="row">
+    <div class="col-lg-12">
+        <nav class="content-menu">
+            <div class="col-11 row">
+                <ul class="nav">
+                    <li class="nav-item active" name="ref_type_choice">
+                        <p class="nav-link" onclick="selection_changed('ref_type_choice', 'active', 0)">Generation</p>
+                    </li>
+                    <li class="nav-item" name="ref_type_choice">
+                        <p class="nav-link" onclick="selection_changed('ref_type_choice', 'active', 1)">Japan</p>
+                    </li>
+                    <li class="nav-item" name="ref_type_choice">
+                        <p class="nav-link" onclick="selection_changed('ref_type_choice', 'active', 2)">Korean</p>
+                    </li>
+                    <li class="nav-item" name="ref_type_choice">
+                        <p class="nav-link" onclick="selection_changed('ref_type_choice', 'active', 3)">Export</p>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+<div class="row">
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
