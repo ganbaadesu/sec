@@ -57,6 +57,9 @@
     background: #A3C2E4;
     margin-left: 5%;
 }
+.content-menu .nav .search-date-choice{
+    background: white;
+}
 .content-menu .nav-item:hover{
     cursor:pointer;
 }

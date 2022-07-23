@@ -6,10 +6,27 @@
       <div class="col-12 grid-margin">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Захиалга нэмэх</h4>
+            <h4 class="card-title" style="text-align: center">Захиалга нэмэх</h4>
             <form class="form-sample" method="POST" action="{{route('ref')}}">
               @csrf
-              <div style="display: inline-block" id="ref_first">
+              <div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="form-group row">
+                      <label class="col-sm-2 col-form-label" >Ref Type</label>
+                      <div class="col-sm-10">
+                        <select class="form-control create" style="color: black" name="RefType" required>
+                          <option>Generation</option>
+                          <option>Japan</option>
+                          <option>Korean</option>
+                          <option>Export</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="ref_first">
                 <div class="row">
                   <div class="col-md-6">
                     <div class="form-group row">

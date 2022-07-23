@@ -13,5 +13,5 @@ class order extends Model
                             'CneePhone', 'PortOfLoading', 'LoadingDate', 'ATA_VIA_port',
                             'ATD_VIA_port', 'VehicleNo', 'ATA_ZU', 'ATD_ZU', 'ZUVehicleNo',
                             'ATA_FD', 'RelIns', 'DateRelease', 'InstGiveDate', 'Shipper',
-                            'Agent', 'Payment', 'ChinaAgent', 'ReturnID', 'FreeDays'];
+                            'Agent', 'Payment', 'ChinaAgent', 'ReturnID', 'FreeDays', 'RefType'];
 }

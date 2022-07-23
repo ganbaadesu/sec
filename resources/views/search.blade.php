@@ -2,7 +2,7 @@
     <div class="card search-content">
         <div class="card-body">
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-12 row">
                     <div class="col-lg-8">
                         <nav class="content-menu">
                             <ul class="nav">
@@ -12,24 +12,36 @@
                             </ul>
                         </nav>
                     </div>
+                    <nav class="content-menu col-lg-4">
+                        <ul class="nav">
+                            <li class="nav-item col-sm-12">
+                                <select class="form-control create" style="color: black" name="RefType">
+                                  <option>Generation</option>
+                                  <option>Japan</option>
+                                  <option>Korean</option>
+                                  <option>Export</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-12">
                     <nav class="content-menu">
-                        <div class="col-9 row">
+                        <div class="col-12 row">
                             <ul class="nav">
                                 <li class="nav-item active" name="search_date_choice">
-                                    <p class="nav-link search" onclick="search_date(0)">Өнөөдөр</p>
+                                    <p class="nav-link" onclick="change_date('search_date_choice', 'active',0, 'search_date')">Өнөөдөр</p>
                                 </li>
-                                <li class="nav-item" name="search_date_choice">
-                                    <p class="nav-link search" onclick="search_date(7)">7 хоног</p>
+                                <li class="nav-item search-date-choice" name="search_date_choice">
+                                    <p class="nav-link" onclick="change_date('search_date_choice', 'active',7, 'search_date')">7 хоног</p>
                                 </li>
-                                <li class="nav-item" name="search_date_choice">
-                                    <p class="nav-link search" onclick="search_date(14)">14 хоног</p>
+                                <li class="nav-item search-date-choice" name="search_date_choice">
+                                    <p class="nav-link" onclick="change_date('search_date_choice', 'active',14, 'search_date')">14 хоног</p>
                                 </li>
-                                <li class="nav-item" name="search_date_choice">
-                                    <p class="nav-link search" onclick="search_date(21)">21 хоног</p>
+                                <li class="nav-item search-date-choice" name="search_date_choice">
+                                    <p class="nav-link" onclick="change_date('search_date_choice', 'active',21, 'search_date')">21 хоног</p>
                                 </li>
                             </ul>
                         </div>
@@ -126,10 +138,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="form-group row button-submit">
-                        <p class="btn btn-primary mr-2" onclick="search()">Хайх</p>
-                    </div>
+                <div class="button-submit col-md-4">
+                        <p class="btn btn-primary row col-sm-12 mr-2" onclick="search()">Хайх</p>
                 </div>
             </div>
             </form>

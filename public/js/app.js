@@ -23,12 +23,17 @@ function search_form(){
     hidden.classList.add("hidden");
 }
 
-function search_date(day){
+function change_date(name, class_name, day, id_name){
         function subtractDays(numOfDays, date=new Date()) {
             date.setDate(date.getDate() - numOfDays);
             return date;
         }
-    selection_changed('search_date_choice', 'active', day/7);
+    selection_changed(name, class_name, parseInt(day/7));
+    var items = document.getElementsByName(name);
+    if(name == 'search_date_choice'){
+        items.forEach(item => { if(!item.classList.contains('search-date-choice')) item.classList.add('search-date-choice'); });
+        items[day/7].classList.remove('search-date-choice');
+    }
     const now = new Date();
     const result = subtractDays(day);
     let year, month, days;
@@ -44,7 +49,7 @@ function search_date(day){
     if(month<10) month = '0'+month;
     if(days<10) days = '0'+days;
     const end_date = year+"-"+month+"-"+days;
-    document.getElementById('search_date').innerHTML = start_date.replace('-','.')+"-"+end_date.replace('-','.');
+    document.getElementById(id_name).innerHTML = start_date.replace('-','.', 2)+"-"+end_date.replace('-','.', 2);
 }
 
 function search(){
@@ -52,7 +57,7 @@ function search(){
 }
 
 function set_selected(){
-    search_date(0);
+    change_date('search_date_choice', 'active',0, 'search_date');
     var dashboard = document.getElementById('dashboard');
     if(location.pathname == "/"){
         dashboard.classList.add('active');
@@ -63,6 +68,7 @@ function set_selected(){
         var button = document.getElementById('permission_menu_operator');
         button.click();
     }
+    if(location.pathname == "/history") change_date('logs_items', 'active', 0, 'history_date');
 }
 function selection_changed(name, className, index){
     var items = document.getElementsByName(name);

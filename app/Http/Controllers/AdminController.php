@@ -97,7 +97,6 @@ class AdminController extends Controller
     }
 
     public function add_ref(Request $request){
-        // dd($request->all());
         //ReturnID
             $Return["ReturnVehicleNo"] = $request->ReturnVehicleNo;
             $Return["Destination"] = $request->Destination;
@@ -129,6 +128,7 @@ class AdminController extends Controller
         $Order["ChinaAgent"] = $request->ChinaAgent;
         $Order["FreeDays"] = $request->FreeDays;
         $Order["ReturnID"] = (ReturnID::create($Return))->id;
+        $Order["RefType"] = $request->RefType;
         Order::create($Order);
         return redirect()->back()->with('success', 'Амжилттай нэмэгдлээ');
     }
