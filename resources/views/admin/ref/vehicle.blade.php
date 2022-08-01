@@ -6,7 +6,7 @@
     <div class="col-12 grid-margin">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Add Vehicle</h4>
+          <h4 class="card-title">Тээврийн хэрэгсэл нэмэх</h4>
           <form class="form-sample" method="POST" action="{{route('vehicle')}}">
             @csrf
             <div class="row">
@@ -40,7 +40,7 @@
               </div>
               <div style="margin-left: 2%" class="col-md-7">
                 <div class="form-group row">
-                  <label class="col-sm-3 col-form-label" >Vehicle No</label>
+                  <label class="col-sm-3 col-form-label" >Тээврийн хэрэгслийн дугаар</label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control create" name="VehicleNo" required/>
                   </div>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-md-12">
-                    <button class="button-submit col-md-8 btn btn-primary mr-2 save" type="submit">SAVE</button>
+                    <button class="button-submit col-md-8 btn btn-primary mr-2 save" type="submit">Хадгалах</button>
                   </div>
                 </div>
               </div>
@@ -67,15 +67,15 @@
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <p class="card-title">Vehicle list</p>
+                <p class="card-title">Тээврийн хэрэгслийн жагсаалт</p>
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive">
                             <table class="table table-hover table-striped">
                                 <thead>
                                     <tr class="table-header">
-                                    <th>Vehicle No</th>
-                                    <th>Vehicle Type</th>
+                                    <th>Тээврийн хэрэгслийн дугаар</th>
+                                    <th>Тээврийн хэрэгслийн төрөл</th>
                                     </tr>
                                 </thead>
                                 <tbody>

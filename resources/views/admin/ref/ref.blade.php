@@ -6,7 +6,7 @@
       <div class="col-12 grid-margin">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title" style="text-align: center">Захиалга нэмэх</h4>
+            <h4 class="card-title" style="text-align: center">Бараа нэмэх</h4>
             <form class="form-sample" method="POST" action="{{route('ref')}}">
               @csrf
               <div>
@@ -173,7 +173,7 @@
                     </div>
                   </div>
                   <div class="col-md-12">
-                    <p style="float: right" class="btn btn-primary mr-2 save" onclick="rel_second_page(true)">Next</p>
+                    <p style="float: right" class="btn btn-primary mr-2 save" onclick="rel_second_page(true)">Дараагийн хуудас</p>
                   </div>
                 </div>
               </div>
@@ -292,10 +292,10 @@
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <p style="float: left" class="btn btn-primary mr-2 save" onclick="rel_second_page(false)">Back</p>
+                    <p style="float: left" class="btn btn-primary mr-2 save" onclick="rel_second_page(false)">Буцах</p>
                   </div>
                   <div class="col-md-6">
-                    <button style="float: right" class="btn btn-primary mr-2 save" type="submit"">Submit</button>
+                    <button style="float: right" class="btn btn-primary mr-2 save" type="submit"">Хадгалах</button>
                   </div>
                 </div>
               </div>

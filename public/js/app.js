@@ -50,7 +50,6 @@ function change_date(name, class_name, day, id_name){
     if(days<10) days = '0'+days;
     const end_date = year+"-"+month+"-"+days;
     document.getElementById(id_name).innerHTML = start_date.replace(/-/g,'.')+"-"+end_date.replace(/-/g,'.');
-    console.log(start_date);
 }
 
 function search(){

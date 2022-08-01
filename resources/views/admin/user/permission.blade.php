@@ -419,7 +419,7 @@
                                 </div>
                             </div>
                             <input class="hidden" type="text" name="usertype" id="usertype" value="operator">
-                            <button class="col-md-6 btn btn-primary mr-2 row save">Save</button>
+                            <button class="col-md-6 btn btn-primary mr-2 row save">Хадгалах</button>
                         </div>
                     </form>
                 </div>

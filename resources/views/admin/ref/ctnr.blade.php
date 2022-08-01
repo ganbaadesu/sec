@@ -6,7 +6,7 @@
     <div class="col-12 grid-margin">
       <div class="card">
         <div class="card-body">
-          <h4 class="card-title">Add Container</h4>
+          <h4 class="card-title">Контайнар нэмэх</h4>
           <form class="form-sample" method="POST" action="{{route('cntr')}}">
             @csrf
             <div class="row">
@@ -50,7 +50,7 @@
                 </div>
               </div>
               <div class="col-md-6">
-                <button class="col-md-12 btn btn-primary mr-2 button-submit save" type="submit">Save</button>
+                <button class="col-md-12 btn btn-primary mr-2 button-submit save" type="submit">Хадгалах</button>
               </div>
             </div>
           </form>
@@ -63,7 +63,7 @@
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
             <div class="card-body">
-                <p class="card-title">Container list</p>
+                <p class="card-title">Контайнарын жагсаалт</p>
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive">

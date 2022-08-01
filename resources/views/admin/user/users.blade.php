@@ -83,7 +83,7 @@
               <div class="col-md-6 row create-user">
                 <div class="col-md-6">
                   <div class="form-group row">
-                    <label class="col-sm-3 col-form-label" >Name</label>
+                    <label class="col-sm-3 col-form-label" >Нэр</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control create" name="name" required/>
                     </div>
@@ -91,7 +91,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group row">
-                    <label class="col-sm-3 col-form-label" >Email</label>
+                    <label class="col-sm-3 col-form-label" >Е-Мэйл</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control create" name="email" required/>
                     </div>
@@ -99,7 +99,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group row">
-                    <label class="col-sm-3 col-form-label" >Phone</label>
+                    <label class="col-sm-3 col-form-label" >Дугаар</label>
                     <div class="col-sm-9">
                       <input type="text" class="form-control create" name="phone" required/>
                     </div>
@@ -108,7 +108,7 @@
                 <div class="col-md-6">
                   <div class="form-group row">
                     <div class="col-md-12">
-                      <button class="button-submit col-md-8 btn btn-primary mr-2 save" type="submit">SAVE</button>
+                      <button class="button-submit col-md-8 btn btn-primary mr-2 save" type="submit">Бүртгэх</button>
                     </div>
                   </div>
                 </div>

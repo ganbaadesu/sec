@@ -7,7 +7,7 @@
                 @if ($message!=NULL)
                     <h3>{{$message}}<h3>
                 @else
-                    <p class="card-title">Orders</p>
+                    <p class="card-title">Бараанууд</p>
                     <div class="row">
                         <div class="col-12">
                             <div class="table-responsive">

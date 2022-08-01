@@ -29,6 +29,12 @@
         "sort-packages": true
     },
     "extra": {
+         
+
+         
+         
+         
+        
         "laravel": {
             "dont-discover": []
         }
