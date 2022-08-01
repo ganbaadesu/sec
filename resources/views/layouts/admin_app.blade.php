@@ -9,8 +9,7 @@
     </a>
     <div class="collapse" id="user_management">
       <ul class="nav flex-column sub-menu">
-        <li class="nav-item"> <a class="nav-link" href="{{url('/user/list')}}">Хэрэглэгчийн жагсаалт</a></li>
-        <li class="nav-item"> <a class="nav-link" href="{{url('/user/add/user')}}">Хэрэглэгч бүртгэх</a></li>
+        <li class="nav-item"> <a class="nav-link" href="{{url('/users')}}">Хэрэглэгч бүртгэх</a></li>
         <li class="nav-item"> <a class="nav-link" href="{{url('/user/permission')}}">Хэрэглэгчийн зөвшөөрөл</a></li>
       </ul>
     </div>

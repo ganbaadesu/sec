@@ -23,17 +23,13 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
 
-    public function index(){
+    public function home(){
         $orders = order::all();
         return view('admin.admin_home')->with('orders', $orders);
     }
-
-    public function list(){
+    public function users(){
         $users = User::all();
-        return view('admin.user.list')->with('users', $users);
-    }
-    public function user(){
-        return view('admin.user.user');
+        return view('admin.user.users')->with('users', $users);
     }
     public function permission(){
         $permission = Permissions::all();
@@ -46,12 +42,8 @@ class AdminController extends Controller
 
 
     public function add_user(Request $request){
-        $user = (object)[];
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->usertype = $request->usertype;
-        $user->phone = $request->phone;
         $request->request->add(["password"=>Hash::make($request->name .'123456')]);
+        dd($request->all());
         User::create($request->all());
         return redirect("/user/add/user")->with('success', 'Амжилттай нэмэгдлээ');
     }

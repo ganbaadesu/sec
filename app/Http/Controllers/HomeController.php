@@ -16,8 +16,12 @@ class HomeController extends Controller
     public function __construct(){$this->middleware('auth');}
 
     public function index(){
+        return view('index');
+    }
+    
+    public function home(){
         $usertype = strtolower(Auth::user()->usertype);
-        if($usertype=='admin') return app(AdminController::class)->index();
+        if($usertype=='admin') return app(AdminController::class)->home();
         
         $permissions = json_decode(((DB::select("select permission from permissions where usertype=:usertype", ["usertype"=>$usertype]))[0])->permission);
         

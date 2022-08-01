@@ -49,7 +49,8 @@ function change_date(name, class_name, day, id_name){
     if(month<10) month = '0'+month;
     if(days<10) days = '0'+days;
     const end_date = year+"-"+month+"-"+days;
-    document.getElementById(id_name).innerHTML = start_date.replace('-','.', 2)+"-"+end_date.replace('-','.', 2);
+    document.getElementById(id_name).innerHTML = start_date.replace(/-/g,'.')+"-"+end_date.replace(/-/g,'.');
+    console.log(start_date);
 }
 
 function search(){

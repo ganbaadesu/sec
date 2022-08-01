@@ -70,7 +70,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item" id="dashboard">
-            <a class="nav-link" href="/">
+            <a class="nav-link" href="/home">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Нүүр хуудас</span>
             </a>
@@ -101,6 +101,7 @@
 
   <!-- plugins:js -->
   <script src={{asset("js/app.js")}}></script>
+  <script src={{asset("js/google_map.js")}}></script>
   <script src={{asset("main_assets/vendors/js/vendor.bundle.base.js")}}></script>
   <script src={{asset("main_assets/js/hoverable-collapse.js")}}></script>
   <script src={{asset("main_assets/js/off-canvas.js")}}></script>

@@ -109,3 +109,12 @@
 .edit:focus{
     border: 3px solid #555;
 }
+.reftype-title{
+    border: 1px;
+    padding-top: 4%;
+    border-radius: 2px;
+    border-style: ridge;
+    border-color: #1869C1;
+    text-align: center;
+    margin-left: 2%;
+}

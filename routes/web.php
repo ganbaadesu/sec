@@ -13,13 +13,13 @@
 
     //Home routes
         Route::get('/', [HomeController::class, 'index']);
+        Route::get('/home', [HomeController::class, 'home']);
         Route::post('/update/ref', [HomeController::class, 'update_ref'])->name('update_ref');
         Route::get('/settings', [HomeController::class, 'settings']);
 
     //Admin routes
         //users
-        Route::get('/user/list', [AdminController::class, 'list']);
-        Route::get('/user/add/user', [AdminController::class, 'user']);
+        Route::get('/users', [AdminController::class, 'users']);
         Route::get('/user/permission', [AdminController::class, 'permission']);
         Route::post('/add/user', [AdminController::class, 'add_user'])->name('user');
         Route::post('/update/user/permission', [AdminController::class, 'update_user_permission'])->name('permission');

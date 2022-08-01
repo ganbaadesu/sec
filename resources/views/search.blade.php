@@ -127,7 +127,7 @@
                     </div>
                 </div>
                 <div class="button-submit col-md-4">
-                        <p class="btn btn-primary row col-sm-12 mr-2" onclick="search()">Хайх</p>
+                        <p class="btn btn-primary row col-sm-12 mr-2 save" onclick="search()">Хайх</p>
                 </div>
             </div>
             </form>

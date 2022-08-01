@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('usertype');
             $table->string('phone');
+            $table->string('reftype')->default('generation');
             $table->string('profile')->default('images/profile/profile.png');
             $table->string('password');
             $table->timestamps();

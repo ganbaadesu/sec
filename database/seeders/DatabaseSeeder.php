@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder
             'usertype'=>'admin',
             'profile'=>'images/profile/profile.png',
             'phone'=>'+976-99999999',
+            'reftype'=>'all',
             'password'=>Hash::make('123456'),
         ]);
         DB::table('users')->insert([
