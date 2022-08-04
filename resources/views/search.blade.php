@@ -35,28 +35,28 @@
                     <div class="col-md-6 search-input">
                         <div class="form-group row">
                             <div class="col-sm-10">
-                            <input type="text" class="form-control search-form" id="RefNo" name="RefNo" placeholder="RefNo"/>
+                            <input type="text" class="form-control search-form" id="SearchRefNo" name="SearchRefNo" placeholder="RefNo"/>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 search-input">
                         <div class="form-group row">
                             <div class="col-sm-10">
-                            <input type="text" class="form-control search-form" id="BINo" name="BINo" placeholder="B/I No"/>
+                            <input type="text" class="form-control search-form" id="SearchBINo" name="SearchBINo" placeholder="B/I No"/>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 search-input">
                         <div class="form-group row">
                             <div class="col-sm-10">
-                            <input type="text" class="form-control search-form" id="CntrNo" name="CntrNo" placeholder="CntrNo"/>
+                            <input type="text" class="form-control search-form" id="SearchCntrNo" name="SearchCntrNo" placeholder="CntrNo"/>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 search-input">
                         <div class="form-group row">
                             <div class="col-sm-10">
-                            <input type="text" class="form-control search-form" id="VehicleNo" name="VehicleNo" placeholder="Vehicle No"/>
+                            <input type="text" class="form-control search-form" id="SearchVehicleNo" name="SearchVehicleNo" placeholder="Vehicle No"/>
                             </div>
                         </div>
                     </div>
@@ -72,7 +72,7 @@
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="table-responsive">
-                                            <table class="table table-hover table-striped">
+                                            <table class="table table-hover table-striped" id="search_table">
                                                 <thead>
                                                     <tr class="table-header">
                                                     <th>REF No</th>

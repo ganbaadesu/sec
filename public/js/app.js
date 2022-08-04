@@ -64,17 +64,62 @@ function change_date(name, class_name, day, id_name){
 
 function search(){
 
-    var RefNo = document.getElementById('RefNo');
-    var BINo = document.getElementById('BINo');
-    var CntrNo = document.getElementById('CntrNo');
-    var VehicleNo = document.getElementById('VehicleNo');
+    const table = document.getElementById('search_table');
+    try{
+        table.removeChild(document.getElementById('search_tbody'));
+    }
+    catch(ex){
+    }
 
+    const RefNo = document.getElementById('SearchRefNo');
+    const BINo = document.getElementById('SearchBINo');
+    const CntrNo = document.getElementById('SearchCntrNo');
+    const VehicleNo = document.getElementById('SearchVehicleNo');
+
+    const elements = {'RefNo':RefNo, 'BINo':BINo, 'CntrNo':CntrNo, 'VehicleNo':VehicleNo};
+
+    var query = "";
+
+    for(const [key, value] of Object.entries(elements)){
+        if(value.value!=""){
+            if(query==""){
+                query+=key +'=' +value.value;
+                continue;
+            }
+            query+=' and ' +key +'=' +value.value;
+        }
+    }
+    const cols = ['RefNo', 'BINo', 'CntrNo', 'CargoName', 'CneeName', 'CneePhone'];
     $.ajax({
         method:"GET",
-        url:"/api/check_data",
-        data:{"table":'orders', "column":column, "value":value},
+        url:"/api/fetch_search_data",
+        data:{'query':query},
         success: function(response){
-            console.log(response);
+            const tbody = document.createElement('tbody');
+            tbody.setAttribute('id', 'search_tbody');
+            response['data'].forEach(element=>{
+                const tr = document.createElement("tr");
+                for(let i = 0; i < 7; i++){
+                    const td = document.createElement("td");
+                    if(i==6){
+                        const label = document.createElement('label');
+                        label.classList.add('badge');
+                        if(element['status'] == 'Success') label.classList.add('badge-success');
+                        if(element['status'] == 'Progressing') label.classList.add('badge-warning');
+                        if(element['status'] == 'Pending') label.classList.add('badge-danger');
+                        const txt = document.createTextNode(element['status']);
+                        label.appendChild(txt);
+                        td.appendChild(label);
+                        tr.appendChild(td);
+                        continue;
+                    }
+                    const txt = document.createTextNode(element[cols[i]]);
+                    td.appendChild(txt);
+                    tr.appendChild(td);
+                }
+                tbody.appendChild(tr);
+            });
+            table.appendChild(tbody);
         },
     });
 }

@@ -16,4 +16,15 @@ class ApiController extends Controller
         $data = DB::table('logs')->where('created_at', '>', $request->start_date ,'and', $request->column, '=', $request->value)->get();
         return response()->json(['data'=>$data]);
     }
+    public function search_data(Request $request){
+        $query = 'select* from orders where ' .$request->all()['query'];
+
+        try{
+            $data = DB::select($query);
+            return response()->json(['data'=>$data]);
+        }
+        catch(\Exception $e){
+            return response()->json(['data'=>$e]);
+        }
+    }
 }
