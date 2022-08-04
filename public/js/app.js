@@ -18,9 +18,19 @@ function search_form(){
     var hidden = document.getElementById("hidden_form");
     if(hidden.classList.contains("hidden")){
         hidden.classList.remove("hidden");
-        return;
+        window.onclick = function(event){
+            if(event.target == hidden || event.target == document.getElementById("center_popup")){
+                hidden.classList.add("hidden");
+                return;
+            }
+            $(document).keyup(function(e) {
+                if (e.key === "Escape") {
+                    hidden.classList.add("hidden");
+                    return;
+               }
+           });
+        }
     }
-    hidden.classList.add("hidden");
 }
 
 function change_date(name, class_name, day, id_name){
@@ -53,11 +63,23 @@ function change_date(name, class_name, day, id_name){
 }
 
 function search(){
-    console.log('search');
+
+    var RefNo = document.getElementById('RefNo');
+    var BINo = document.getElementById('BINo');
+    var CntrNo = document.getElementById('CntrNo');
+    var VehicleNo = document.getElementById('VehicleNo');
+
+    $.ajax({
+        method:"GET",
+        url:"/api/check_data",
+        data:{"table":'orders', "column":column, "value":value},
+        success: function(response){
+            console.log(response);
+        },
+    });
 }
 
 function set_selected(){
-    change_date('search_date_choice', 'active',0, 'search_date');
     var dashboard = document.getElementById('dashboard');
     if(location.pathname == "/"){
         dashboard.classList.add('active');
@@ -97,6 +119,7 @@ const edit = () => (document.getElementsByName("edit[]")).forEach(
 );
 
 const check_data = (table, column, value) => {
+    var return_sections = document.getElementsByName('return_section');
     if(value != ''){
         $.ajax({
             method:"GET",
@@ -109,8 +132,28 @@ const check_data = (table, column, value) => {
                         return;
                     }
                     alert("Тээврийн хэрэгсэл олдсонгүй, дахин шалгана уу...?");
+                    return;
                 }
+                return_sections.forEach(element => {
+                        (table == 'containers' || response['data'][0]['CntrType'] == 'SOC') ? 
+                        element.classList.add('hidden') : 
+                        element.classList.remove('hidden');;
+                    });
             },
         });
+        return;
+    };
+    return_sections.forEach(element => {
+        element.classList.remove('hidden');
+    });
+}
+
+const cntrChange = (value) =>{
+    if(value=="SOC"){
+        document.getElementById('CntrOwner').disabled = true;
+        document.getElementById('CntrOwner').value = "SBL";
+        return;
     }
+    document.getElementById('CntrOwner').disabled = false;
+    document.getElementById('CntrOwner').value = "";
 }

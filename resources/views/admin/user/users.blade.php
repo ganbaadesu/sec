@@ -143,9 +143,6 @@
                               <th>
                                 Хариуцсан хэсэг
                               </th>
-                              <th>
-                                Нүүр зураг
-                              </th>
                             </tr>
                           </thead>
                           <tbody>
@@ -165,9 +162,6 @@
                                   </td>
                                   <td>
                                     {{$user["reftype"]}}
-                                  </td>
-                                  <td>
-                                  <img class="profile-pic" src="{{asset($user["profile"])}}" alt="profile"/>
                                   </td>
                               </tr>
                             @endforeach

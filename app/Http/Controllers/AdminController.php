@@ -91,11 +91,14 @@ class AdminController extends Controller
     public function add_ref(Request $request){
         //ReturnID
             $Return["ReturnVehicleNo"] = $request->ReturnVehicleNo;
+            $Return["ReturnDate"] = $request->ReturnDate;
             $Return["Destination"] = $request->Destination;
             $Return["Return_ATA_ZU"] = $request->Return_ATA_ZU;
             $Return["Return_ATD_ZU"] = $request->Return_ATD_ZU;
             $Return["TransferNo"] = $request->TransferNo;
-        $Order["RefID"] = $request->RefID;
+            $Return["FreeDays"] = $request->FreeDays;
+            $Return["Alarm"] = $request->Alarm;
+        $Order["RefNo"] = $request->RefNo;
         $Order["BINo"] = $request->BINo;
         $Order["CntrNo"] = $request->CntrNo;
         $Order["CargoName"] = $request->CargoName;
@@ -118,7 +121,6 @@ class AdminController extends Controller
         $Order["Payment"] = $request->Payment;
         $Order["CollectAmount"] = $request->CollectAmount;
         $Order["ChinaAgent"] = $request->ChinaAgent;
-        $Order["FreeDays"] = $request->FreeDays;
         $Order["ReturnID"] = (ReturnID::create($Return))->id;
         $Order["RefType"] = $request->RefType;
         Order::create($Order);

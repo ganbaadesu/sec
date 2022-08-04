@@ -18,21 +18,26 @@
 </head>
 
 <body onload="set_selected()">
+  <div class="hidden popup" id="hidden_form">
+    <div class="center-popup" id="center_popup">
+      @include('search')
+    </div>
+  </div>
   <div class="container-scroller" id="parent">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <img class="navbar-brand brand-logo mr-5" src="{{asset('images/assets/logo.png')}}">
-        <img class="navbar-brand brand-logo-mini" src="{{asset('images/assets/logo.png')}}"/>
-      </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <ul class="navbar-nav mr-lg-2">
           <li class="nav-item nav-search d-none d-lg-block">
             <div class="input-group input-group-bordered" onclick="search_form()">
-              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+              <div class="input-group-prepend hover-cursor search_border" id="navbar-search-icon">
                 <span class="input-group-text" id="search">
-                  <i class="icon-search">Хайх хэсэг</i>
+                  <i class="icon-search"></i>
                 </span>
+                <div style="text-align: center">
+                  <p class="search_title"> Хайх хэсэг</p>
+
+                </div>
               </div>
             </div>
           </li>
@@ -69,21 +74,27 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
+          <img src="{{asset('images/assets/logo.png')}}" alt="" height="50px" width="108px" id="logo">
+        </ul>
+        <ul class="nav nav-content">
           <li class="nav-item" id="dashboard">
-            <a class="nav-link" href="/home">
+            <a class="nav-link" href="/">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Нүүр хуудас</span>
             </a>
           </li>
           @yield('nav-bar')
+          <li class="nav-item" id="dashboard">
+            <a class="nav-link" href="/map">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Газрын зураг</span>
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
-          <div class="row hidden" id="hidden_form">
-            @include('search')
-          </div>
           @if (\Session::has('success'))
             <div class="alert alert-success">
                 <ul>
@@ -92,6 +103,7 @@
             </div>
           @endif
           @yield('main')
+
         </div>
       </div>
     </div>

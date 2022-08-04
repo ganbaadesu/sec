@@ -15,7 +15,7 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('RefID')->unique();
+            $table->string('RefNo')->unique();
             $table->string('BINo');
             $table->string('CntrNo');
             $table->string('CargoName');
@@ -25,11 +25,13 @@ class CreateOrdersTable extends Migration
             $table->date('LoadingDate');
             $table->date('ATA_VIA_port')->nullable();
             $table->date('ATD_VIA_port')->nullable();
+            $table->string('Port')->nullable();
             $table->string('VehicleNo')->nullable();
             $table->date('ATA_ZU')->nullable();
             $table->date('ATD_ZU')->nullable();
             $table->string('ZUVehicleNo')->nullable();
             $table->date('ATA_FD')->nullable();
+            $table->string('ZU_Port')->nullable();
             $table->string('RelIns')->nullable();
             $table->date('DateRelease')->nullable();
             $table->date('InstGivenDate')->nullable();
@@ -39,7 +41,6 @@ class CreateOrdersTable extends Migration
             $table->string('CollectAmount')->nullable();
             $table->string('ChinaAgent');
             $table->string('ReturnID')->foreign('id')->references('id')->nullable();
-            $table->string('FreeDays');
             $table->string('RefType')->default("general");
             $table->string('status')->default('Pending');
             $table->timestamps();

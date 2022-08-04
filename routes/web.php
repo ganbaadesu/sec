@@ -12,8 +12,8 @@
         Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
     //Home routes
-        Route::get('/', [HomeController::class, 'index']);
-        Route::get('/home', [HomeController::class, 'home']);
+        Route::get('/', [HomeController::class, 'home']);
+        Route::get('/map', [HomeController::class, 'map']);
         Route::post('/update/ref', [HomeController::class, 'update_ref'])->name('update_ref');
         Route::get('/settings', [HomeController::class, 'settings']);
 

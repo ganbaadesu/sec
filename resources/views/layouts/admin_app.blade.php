@@ -1,7 +1,7 @@
 @extends('layouts/app')
 
 @section('nav-bar')
-  <li class="nav-item" onload="set_selected()">
+  <li class="nav-item">
     <a class="nav-link" data-toggle="collapse" href="#user_management" aria-expanded="false" aria-controls="user_management">
       <i class="icon-head menu-icon"></i>
       <span class="menu-title">Хэрэглэгчийн удирдлага</span>

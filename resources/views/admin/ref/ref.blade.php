@@ -32,7 +32,7 @@
                     <div class="form-group row">
                       <label class="col-sm-4 col-form-label" >Ref No</label>
                       <div class="col-sm-8">
-                        <input type="text" class="form-control create" name="RefID" required/>
+                        <input type="text" class="form-control create" name="RefNo" required/>
                       </div>
                     </div>
                   </div>
@@ -156,6 +156,13 @@
                       </div>
                     </div>
                   </div>
+                  <div class="col-md-12">
+                    <p style="float: right" class="btn btn-primary mr-2 save" onclick="rel_second_page(true)">Дараагийн хуудас</p>
+                  </div>
+                </div>
+              </div>
+              <div style="display:none" id="ref_second">
+                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group row">
                       <label class="col-sm-4 col-form-label" >Rel.Ins</label>
@@ -172,13 +179,6 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-12">
-                    <p style="float: right" class="btn btn-primary mr-2 save" onclick="rel_second_page(true)">Дараагийн хуудас</p>
-                  </div>
-                </div>
-              </div>
-              <div style="display:none" id="ref_second">
-                <div class="row">
                   <div class="col-md-6">
                     <div class="form-group row">
                       <label class="col-sm-4 col-form-label" >Inst Given Date</label>
@@ -227,69 +227,72 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-md-6">
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label" >Return Date</label>
-                      <div class="col-sm-8">
-                        <input type="date" class="form-control create" name="ReturnDate"/>
+
+                    <div class="col-md-6" name="return_section">
+                      <div class="form-group row">
+                        <label class="col-sm-4 col-form-label" >Return Date</label>
+                        <div class="col-sm-8">
+                          <input type="date" class="form-control create" name="ReturnDate"/>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label" >Wagon No</label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control create" onfocusout="check_data('vehicles', 'VehicleNo', this.value)" name="ReturnVehicleNo"/>
+                    <div class="col-md-6" name="return_section">
+                      <div class="form-group row">
+                        <label class="col-sm-4 col-form-label" >Wagon No</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control create" onfocusout="check_data('vehicles', 'VehicleNo', this.value)" name="ReturnVehicleNo"/>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label" >Destination</label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control create" name="Destination"/>
+                    <div class="col-md-6" name="return_section">
+                      <div class="form-group row">
+                        <label class="col-sm-4 col-form-label" >Destination</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control create" name="Destination"/>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label" >ATA ZU</label>
-                      <div class="col-sm-8">
-                        <input type="date" class="form-control create" name="Return_ATA_ZU"/>
+                    <div class="col-md-6" name="return_section">
+                      <div class="form-group row">
+                        <label class="col-sm-4 col-form-label" >ATA ZU</label>
+                        <div class="col-sm-8">
+                          <input type="date" class="form-control create" name="Return_ATA_ZU"/>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label" >ATD_ZU</label>
-                      <div class="col-sm-8">
-                        <input type="date" class="form-control create" name="Return_ATD_ZU"/>
+                    <div class="col-md-6" name="return_section">
+                      <div class="form-group row">
+                        <label class="col-sm-4 col-form-label" >ATD_ZU</label>
+                        <div class="col-sm-8">
+                          <input type="date" class="form-control create" name="Return_ATD_ZU"/>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label" >Transfer No</label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control create" name="TransferNo"/>
+                    <div class="col-md-6" name="return_section">
+                      <div class="form-group row">
+                        <label class="col-sm-4 col-form-label" >Transfer No</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control create" name="TransferNo"/>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label" >Alarm</label>
-                      <div class="col-sm-8">
-                        <input type="text" class="form-control create" name="Alarm"/>
+                    <div class="col-md-6" name="return_section">
+                      <div class="form-group row">
+                        <label class="col-sm-4 col-form-label" >Alarm</label>
+                        <div class="col-sm-8">
+                          <input type="text" class="form-control create" name="Alarm"/>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group row">
-                      <label class="col-sm-4 col-form-label" >Free Days</label>
-                      <div class="col-sm-8">
-                        <input type="number" class="form-control create" name="FreeDays" required/>
+                    <div class="col-md-6" name="return_section">
+                      <div class="form-group row">
+                        <label class="col-sm-4 col-form-label" >Free Days</label>
+                        <div class="col-sm-8">
+                          <input type="number" class="form-control create" name="FreeDays"/>
+                        </div>
                       </div>
                     </div>
+
                   </div>
                   <div class="col-md-6">
                     <p style="float: left" class="btn btn-primary mr-2 save" onclick="rel_second_page(false)">Буцах</p>

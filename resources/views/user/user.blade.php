@@ -20,13 +20,13 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @for ($index = 0; $index < sizeof($data[$permissions[0]]); $index++)
+                                        @foreach ($orders as $items)
                                             <tr>
-                                                @for ($i = 0; $i < sizeof($permissions); $i++)
-                                                    <td>{{$data[$permissions[$i]][$index]}}</td>
-                                                @endfor
+                                                @foreach ($permissions as $permission)
+                                                    <td>{{$items[$permission]}}</td>
+                                                @endforeach
                                             </tr>
-                                        @endfor
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

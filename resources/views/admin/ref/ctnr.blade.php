@@ -30,15 +30,18 @@
                 <div class="form-group row">
                   <label class="col-sm-3 col-form-label" >Cntr Type</label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control create" name="CntrType" required/>
+                    <select class="form-control create" onchange="cntrChange(this.value)" style="color: black" name="CntrType" required>
+                      <option>COC</option>
+                      <option>SOC</option>
+                    </select>
                   </div>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group row">
-                  <label class="col-sm-3 col-form-label" >Cntr Owner</label>
+                  <label class="col-sm-3 col-form-label">Cntr Owner</label>
                   <div class="col-sm-9">
-                    <input type="text" class="form-control create" name="CntrOwner"/>
+                    <input type="text" class="form-control create" name="CntrOwner" id="CntrOwner"/>
                   </div>
                 </div>
               </div>

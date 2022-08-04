@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\Models\order;
-use App\Models\log;
+use App\Models\Container;
+use App\Models\ReturnID;
+use App\Models\Vehicle;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -15,8 +17,14 @@ class HomeController extends Controller
 {
     public function __construct(){$this->middleware('auth');}
 
-    public function index(){
-        return view('index');
+    public function map(){
+        $all_order = Order::all();
+        $ports = array();
+        foreach($all_order as $order){
+            
+        }
+        if(strtolower(Auth::user()->usertype)=='admin') return view('admin.admin_map');
+        return view('user.user_map');
     }
     
     public function home(){
@@ -29,17 +37,26 @@ class HomeController extends Controller
 
         $message = NULL;
 
-        try{
-            foreach($permissions as $permission){
-                $data[$permission] = DB::select("select :column from orders", ["column"=>$permission]);
-                $data[$permission] = ["1" ,"2"];
+        $orders = (Order::all());
+        $containers = json_decode(Container::all());
+        $return = json_decode(ReturnID::all());
+        foreach($orders as $order){
+            foreach($containers[0] as $name => $value){
+                $order[$name] = $value;
+            }
+            foreach($return[0] as $name => $value){
+                if($name == 'ReturnVehicleNo'){
+                    $order['WagonNo'] = $value;
+                    $vehicleType = DB::select('select VehicleType from vehicles where VehicleNo=:vehicle', ['vehicle'=>$value])[0];
+                    foreach($vehicleType as $v){
+                        $order['Mode']=$v;
+                    }
+                    continue;
+                }
+                $order[$name] = $value;
             }
         }
-        catch(\Exception $e){
-            $message = 'Та зөвшөөрөлгүй байгаа тул админтай холбогдоно уу?';
-        }
-        // dd($data);
-        return view('user.user')->with("permissions", $permissions)->with('data', $data)->with('message', $message);
+        return view('user.user')->with("permissions", $permissions)->with('orders', $orders)->with('message', $message);
     }
 
     public function update_ref(Request $request, $column){

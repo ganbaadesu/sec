@@ -21,6 +21,7 @@ class CreateReturnIDSTable extends Migration
             $table->date('Return_ATA_ZU')->nullable();
             $table->date('Return_ATD_ZU')->nullable();
             $table->string('TransferNo')->unique()->nullable();
+            $table->number('FreeDays')->nullable();
             $table->string('Alarm')->nullable();
         });
     }

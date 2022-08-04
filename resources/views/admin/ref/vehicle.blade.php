@@ -40,9 +40,8 @@
               </div>
               <div style="margin-left: 2%" class="col-md-7">
                 <div class="form-group row">
-                  <label class="col-sm-3 col-form-label" >Тээврийн хэрэгслийн дугаар</label>
-                  <div class="col-sm-9">
-                    <input type="text" class="form-control create" name="VehicleNo" required/>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control create" name="VehicleNo" placeholder="Тээврийн хэрэгслийн дугаар" required/>
                   </div>
                 </div>
                 <div class="form-group row">

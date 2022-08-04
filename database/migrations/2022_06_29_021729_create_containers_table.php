@@ -17,7 +17,7 @@ class CreateContainersTable extends Migration
             $table->string('CntrNo')->unique();
             $table->string('CntrSize');
             $table->string('CntrType');
-            $table->string('CntrOwner');
+            $table->string('CntrOwner')->default('SBL');
         });
     }
 

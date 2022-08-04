@@ -2,21 +2,24 @@
 
 @section('content')
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-sm-12">
         <nav class="content-menu">
             <div class="col-11 row">
                 <ul class="nav">
                     <li class="nav-item active" name="ref_type_choice">
-                        <p class="nav-link" onclick="selection_changed('ref_type_choice', 'active', 0)">Generation</p>
+                        <p class="nav-link" onclick="selection_changed('ref_type_choice', 'active', 0)">All</p>
                     </li>
                     <li class="nav-item" name="ref_type_choice">
-                        <p class="nav-link" onclick="selection_changed('ref_type_choice', 'active', 1)">Japan</p>
+                        <p class="nav-link" onclick="selection_changed('ref_type_choice', 'active', 1)">Generation</p>
                     </li>
                     <li class="nav-item" name="ref_type_choice">
-                        <p class="nav-link" onclick="selection_changed('ref_type_choice', 'active', 2)">Korean</p>
+                        <p class="nav-link" onclick="selection_changed('ref_type_choice', 'active', 2)">Japan</p>
                     </li>
                     <li class="nav-item" name="ref_type_choice">
-                        <p class="nav-link" onclick="selection_changed('ref_type_choice', 'active', 3)">Export</p>
+                        <p class="nav-link" onclick="selection_changed('ref_type_choice', 'active', 3)">Korean</p>
+                    </li>
+                    <li class="nav-item" name="ref_type_choice">
+                        <p class="nav-link" onclick="selection_changed('ref_type_choice', 'active', 4)">Export</p>
                     </li>
                 </ul>
             </div>
@@ -51,7 +54,7 @@
                                     @foreach ($orders as $order)
                                         <tr>
                                             <td>{{$i}}</td>
-                                            <td><input type="text" name="edit[]" placeholder="{{$order->RefID}}" class="edit disabled_edit"></td>
+                                            <td><input type="text" name="edit[]" placeholder="{{$order->RefNo}}" class="edit disabled_edit"></td>
                                             <td><input type="text" name="edit[]" placeholder="{{$order->BINo}}" class="edit disabled_edit"></td>
                                             <td><input type="text" name="edit[]" placeholder="{{$order->CntrNo}}" class="edit disabled_edit"></td>
                                             <td><input type="text" name="edit[]" placeholder="{{$order->CargoName}}" class="edit disabled_edit"></td>

@@ -17,7 +17,7 @@
 <div class="row">
     <div class="col-lg-12">
         <nav class="content-menu">
-            <div class="col-11 row">
+            <div class="col-12 row">
                 <ul class="nav">
                     <li class="nav-item active" name="logs_items">
                         <p class="nav-link" onclick="change_date('logs_items', 'active', 0, 'history_date')">Өнөөдөр</p>
@@ -51,6 +51,7 @@
                                 <thead>
                                     <tr class="table-header">
                                     <th>No</th>
+                                    <th>Он сар өдөр</th>
                                     <th>Хэрэглэгч</th>
                                     <th>Багана</th>
                                     <th>Хуучин мэдээлэл</th>
@@ -58,14 +59,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                        $i=0;
+                                    @endphp
                                     @foreach ($logs as $log)
                                         <tr>
-                                            <td>{{$log->id}}</td>
+                                            <td>{{$i}}</td>
+                                            <td>{{$log->created_at}}</td>
                                             <td>{{$log->user_id}}</td>
                                             <td>{{$log->column_name}}</td>
                                             <td>{{$log->old_data}}</td>
                                             <td>{{$log->new_data}}</td>
                                         </tr>
+                                        @php
+                                            $i++;
+                                        @endphp
                                     @endforeach
                                 </tbody>
                             </table>

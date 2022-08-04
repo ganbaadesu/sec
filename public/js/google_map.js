@@ -18,9 +18,10 @@ function get_coordinate(address, map){
         const marker = new google.maps.Marker({
             position:coords,
             map:map,
+            icon:'../images/assets/shipping.png'
         });
         const detailWindow = new google.maps.InfoWindow({
-            content : '<h2>Detail</h2>'
+            content : '<p>Detail</p>'
         });
         marker.addListener("mouseover", ()=>{
             detailWindow.open(map, marker);
