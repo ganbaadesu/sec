@@ -7,7 +7,7 @@
             <nav class="content-menu">
                 <ul class="nav">
                     <li class="nav-item active">
-                        <p class="nav-link" id="history_date"></p>
+                        <input  type="text" id="history_calendar" style="display: none"><p class="nav-link" id="history_date" onchange="change_history_content(this.value, 'data')"></p>
                     </li>
                 </ul>
             </nav>
@@ -50,7 +50,6 @@
                             <table class="table table-hover table-striped">
                                 <thead>
                                     <tr class="table-header">
-                                    <th>No</th>
                                     <th>Он сар өдөр</th>
                                     <th>Хэрэглэгч</th>
                                     <th>Багана</th>
@@ -58,22 +57,15 @@
                                     <th>Шинэ мэдээлэл</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    @php
-                                        $i=0;
-                                    @endphp
+                                <tbody id="logs_tbody">
                                     @foreach ($logs as $log)
                                         <tr>
-                                            <td>{{$i}}</td>
                                             <td>{{$log->created_at}}</td>
                                             <td>{{$log->user_id}}</td>
                                             <td>{{$log->column_name}}</td>
                                             <td>{{$log->old_data}}</td>
                                             <td>{{$log->new_data}}</td>
                                         </tr>
-                                        @php
-                                            $i++;
-                                        @endphp
                                     @endforeach
                                 </tbody>
                             </table>

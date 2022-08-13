@@ -181,14 +181,28 @@
 .edit{
     background-color: transparent;
     color: black;
-    width: 60px;
+    width: 100%;
+}
+.enabled_edit{
+    box-sizing: border-box;
+    background: #D3E5F9 !important;
+    border: 1px solid #5C58D5;
+    border-radius: 8px;
+
+}
+.enabled_edit:focus{
+    border: 3px solid #5C58D5;
 }
 .disabled_edit{
     pointer-events: none;
     border: none; 
 }
-.edit:focus{
-    border: 3px solid #555;
+select.disabled_select::-ms-expand{
+    display: none;
+
+}
+.disabled_select{
+    background-color: transparent;
 }
 .reftype-title{
     border: 1px;
@@ -199,17 +213,17 @@
     text-align: center;
     margin-left: 2%;
 }
-  @-webkit-keyframes fadeIn {
+@-webkit-keyframes fadeIn {
     from {opacity: 0} 
     to {opacity: 1}
-  }
+}
   
-  @keyframes fadeIn {
+@keyframes fadeIn {
     from {opacity: 0} 
     to {opacity: 1}
-  }
-  #map{
-    height: 100%;
+}
+#map{
+    height: 50%;
     width: 100%;
     margin: 0%;
     padding: 0%;
@@ -225,4 +239,79 @@
     margin-top: 10%;
     margin-left: 5%;
     margin-right: 5%;
+}
+.details_div{
+    margin-top: -2%;
+    width: calc(96% - 300px);
+    height: fit-content;
+    position: fixed;
+    z-index: 1032;
+    overflow-y: auto;
+}
+.color_black::placeholder{
+    color: black;
+}
+@media (max-width:991px){
+    .details_div{
+        width: calc(94%);
+    }
+}
+.detail-row{
+    margin-bottom: 2%;
+}
+.detail-row-column{
+    margin-left: 4%;
+}
+.detail-row-column > label{
+    margin-bottom: 0% !important;
+    font-family: 'Nunito' !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    line-height: 19px !important;
+    text-align: justify !important;
+}
+.detail-row-column > input{
+    height: 35px;
+    
+    background: #D3E5F9;
+    border-radius: 8px;
+}
+.detail-row-column > select{
+    height: 35px;
+    
+    background: #D3E5F9;
+    border-radius: 8px;
+}
+.ref-title{
+    margin-top: -5%;
+    text-align: center;
+}
+.ref-title > p{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 61px;
+    color: #0D2655;
+}
+.ref-next-button{
+    background: #1869C1 !important;
+    height: 41px !important;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 6px !important;
+}
+.ref-back-button{
+    background: #D3E5F9 !important;
+    color: black;
+    border: 1px solid #1869C1 !important;
+    height: 41px !important;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25) !important;
+    border-radius: 6px !important;
+}
+.ref-next-button:hover{
+    background: #1869C1 !important;
+}
+.ref-back-button:hover{
+    background: #D3E5F9 !important;
 }

@@ -11,13 +11,13 @@
     <link rel="stylesheet" href={{asset("main_assets/vendors/css/vendor.bundle.base.css")}}>
     <link rel="stylesheet" href={{asset("main_assets/css/vertical-layout-light/style.css")}}>
     <link rel="stylesheet" href={{asset("main_assets/vendors/ti-icons/css/themify-icons.css")}}>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link rel="stylesheet" href={{asset("css/app.css")}}>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <link rel="icon" type="image/x-icon" href={{asset("images/assets/logo.png")}}/>
 </head>
 
-<body onload="set_selected()">
+<body onload="index()">
   <div class="hidden popup" id="hidden_form">
     <div class="center-popup" id="center_popup">
       @include('search')
@@ -84,12 +84,6 @@
             </a>
           </li>
           @yield('nav-bar')
-          <li class="nav-item" id="dashboard">
-            <a class="nav-link" href="/map">
-              <i class="icon-grid menu-icon"></i>
-              <span class="menu-title">Газрын зураг</span>
-            </a>
-          </li>
         </ul>
       </nav>
       <!-- partial -->
@@ -111,9 +105,13 @@
   </div>
   <!-- container-scroller -->
 
-  <!-- plugins:js -->
+  <!-- external:js -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" defer></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js" defer></script>
+
+  <!-- custom:js -->
   <script src={{asset("js/app.js")}}></script>
-  <script src={{asset("js/google_map.js")}}></script>
   <script src={{asset("main_assets/vendors/js/vendor.bundle.base.js")}}></script>
   <script src={{asset("main_assets/js/hoverable-collapse.js")}}></script>
   <script src={{asset("main_assets/js/off-canvas.js")}}></script>

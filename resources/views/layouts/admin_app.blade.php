@@ -16,7 +16,7 @@
   </li>
   <li class="nav-item">
     <a class="nav-link" data-toggle="collapse" href="#ref_management" aria-expanded="false" aria-controls="ref_management">
-      <i class="icon-layout menu-icon"></i>
+      <i class="icon-paper menu-icon"></i>
       <span class="menu-title">Захиалгын удирдлага</span>
       <i class="menu-arrow"></i>
     </a>
@@ -30,7 +30,7 @@
   </li>
   <li class="nav-item">
     <a class="nav-link" href="{{url('/history')}}">
-      <i class="icon-layout menu-icon"></i>
+      <i class="icon-clock menu-icon"></i>
       <span class="menu-title">History</span>
     </a>
   </li>

@@ -16,16 +16,6 @@ use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
     public function __construct(){$this->middleware('auth');}
-
-    public function map(){
-        $all_order = Order::all();
-        $ports = array();
-        foreach($all_order as $order){
-            
-        }
-        if(strtolower(Auth::user()->usertype)=='admin') return view('admin.admin_map');
-        return view('user.user_map');
-    }
     
     public function home(){
         $usertype = strtolower(Auth::user()->usertype);
