@@ -1,4 +1,6 @@
 var data = [];
+var search_data = [];
+var CntrType = 'COC';
 const cols = ['RefNo', 'BINo', 'CntrNo', 'CargoName', 'CneeName', 'CneePhone'];
 
 function index(){
@@ -29,8 +31,14 @@ function rel_second_page(isFirst){
     var second = document.getElementById('ref_second');
     
     if(isFirst){
+        var return_sections = document.getElementsByName('return_section');
         first.style.display="none";
         second.style.display="inline-block";
+        return_sections.forEach(element => {
+                (CntrType == 'SOC') ? 
+                element.classList.add('hidden') : 
+                element.classList.remove('hidden');;
+            });
         return;
     }
 
@@ -44,7 +52,7 @@ function search_form(){
     if(hidden.classList.contains("hidden")){
         hidden.classList.remove("hidden");
         window.onclick = function(event){
-            if(event.target == hidden || event.target == document.getElementById("center_popup")){
+            if(event.target == hidden || event.target == document.getElementById("center_popup") || event.target == document.getElementById('close_search_button')){
                 hidden.classList.add("hidden");
                 return;
             }
@@ -109,10 +117,10 @@ function search(){
     for(const [key, value] of Object.entries(elements)){
         if(value.value!=""){
             if(query==""){
-                query+=key +'=' +value.value;
+                query+=key +'=\'' +value.value +'\'';
                 continue;
             }
-            query+=' and ' +key +'=' +value.value;
+            query+=' and ' +key +'=\'' +value.value +'\'';
         }
     }
     $.ajax({
@@ -122,7 +130,54 @@ function search(){
         success: function(response){
             const tbody = document.createElement('tbody');
             tbody.setAttribute('id', 'search_tbody');
-            response['data'].forEach(element=>{
+            search_data=[];
+            try{
+                response['data'].forEach(element=>{
+                    search_data.push(element);
+                    const tr = document.createElement("tr");
+                    for(let i = 0; i < 7; i++){
+                        const td = document.createElement("td");
+                        if(i==6){
+                            const label = document.createElement('label');
+                            label.classList.add('badge');
+                            if(element['status'] == 'Success') label.classList.add('badge-success');
+                            if(element['status'] == 'Progressing') label.classList.add('badge-warning');
+                            if(element['status'] == 'Pending') label.classList.add('badge-danger');
+                            const txt = document.createTextNode(element['status']);
+                            label.appendChild(txt);
+                            td.appendChild(label);
+                            tr.appendChild(td);
+                            continue;
+                        }
+                        const txt = document.createTextNode(element[cols[i]]);
+                        td.appendChild(txt);
+                        tr.appendChild(td);
+                    }
+                    tbody.appendChild(tr);
+                });
+                table.appendChild(tbody);
+            }
+            catch(e){void(0);}
+        },
+    });
+}
+
+function search_ref_change(refType){
+    const table = document.getElementById('search_table');
+    try{
+        table.removeChild(document.getElementById('search_tbody'));
+    }
+    catch(ex){
+    }
+    if(refType.innerHTML == 'All'){
+        search();
+        return;
+    }
+    try{
+        const tbody = document.createElement('tbody');
+        tbody.setAttribute('id', 'search_tbody');
+        search_data.forEach(element =>{
+            if(element["RefType"] == refType.innerHTML){
                 const tr = document.createElement("tr");
                 for(let i = 0; i < 7; i++){
                     const td = document.createElement("td");
@@ -143,10 +198,12 @@ function search(){
                     tr.appendChild(td);
                 }
                 tbody.appendChild(tr);
-            });
+            }
             table.appendChild(tbody);
-        },
-    });
+        })
+    }
+    catch(e){void(0);}
+
 }
 
 function admin_home(type, orders){
@@ -158,16 +215,19 @@ function admin_home(type, orders){
                 if(elements.nodeName != '#text')
                     elements.childNodes.forEach(element => {
                         if(element.nodeName == 'INPUT' && element.classList.contains('enabled_edit')){
+                            element.value='';
                             element.classList.remove('enabled_edit');
                             element.classList.add('disabled_edit');
                         }
                     });
             });
         }
-        tbody.removeChild(tr);
+        tbody.removeChild(tbody.firstChild);
     }
     if(type == 'all'){
         data.forEach(element => {
+            try{element.removeChild(element.childNodes[19]);}
+            catch(e){void(0);}
             tbody.appendChild(element);
         });
         return;
@@ -179,7 +239,10 @@ function admin_home(type, orders){
         }
     })
     data.forEach(element => {
-        if(new_data.includes((element.childNodes[3]).childNodes[0].placeholder)){
+        if(new_data.includes(element.childNodes[3].innerHTML)){
+
+            try{element.removeChild(element.childNodes[19]);}
+            catch(e){void(0);}
             tbody.appendChild(element);
         }
     });
@@ -209,15 +272,83 @@ function check_permissions(permissions){
         ChBox.checked = true;
     });
 }
-const edit = () => (document.getElementsByName("edit[]")).forEach(
-    item =>{
-        item.classList.remove("disabled_edit");
-        item.classList.add("enabled_edit");
+function edit(el) {
+    if(!el.childNodes[5].childNodes[0].classList.contains("enabled_edit")){
+        var cancel_button = document.createElement('button');
+        var detail_td = document.createElement('td');
+        var save_button = document.createElement('button');
+        cancel_button.textContent ='Cancel';
+        cancel_button.classList.add('edit_cancel_button');
+        cancel_button.addEventListener('click', function(){cancel_edit(this.parentNode.parentNode);})
+        save_button.textContent ='Save';
+        save_button.classList.add('edit_save_button');
+        save_button.addEventListener('click', function(){
+            save_edit($('meta[name="csrf-token"]').attr('content'), this.parentNode.parentNode);
+        })
+        detail_td.appendChild(cancel_button);
+        detail_td.appendChild(save_button);
+        el.appendChild(detail_td);
     }
-);
+    for(let i = 5; i < 14; i+=2){
+        el.childNodes[i].childNodes[0].classList.remove("disabled_edit");
+        el.childNodes[i].childNodes[0].classList.add("enabled_edit");
+    }
+}
+
+function save_edit(_token, tr){
+    var edit_data = {};
+    edit_data['RefNo'] = tr.childNodes[3].innerHTML;
+    tr.childNodes.forEach(elements => {
+        if(elements.nodeName != '#text')
+            elements.childNodes.forEach(element =>{
+                if(element.nodeName == 'INPUT')
+                    if(element.value != '') {
+                        const name = element.getAttribute("name");
+                        edit_data[name] = element.value;
+                    }
+            });
+    });
+    if(Object.keys(edit_data).length < 2) {
+        alert('No changes...!');
+        return;
+    }
+    $.ajax({
+        method:"POST",
+        url:"/update/ref",
+        data:{"_token":_token, data:edit_data},
+        success: function(response){
+            if(response == "Done"){
+                tr.childNodes.forEach(elements => {
+                    elements.childNodes.forEach(element => {
+                        if(element.nodeName == 'INPUT'){
+                            element.value='';
+                            if(edit_data.hasOwnProperty(element.getAttribute('name'))) element.placeholder = edit_data[element.getAttribute('name')];
+                            element.classList.remove('enabled_edit');
+                            element.classList.add('disabled_edit');
+                        }
+                    });
+                });
+                tr.removeChild(tr.childNodes[19]);
+                alert('Амжилттай шинэчлэгдлээ');
+            }
+        },
+    });
+}
+
+function cancel_edit(tr){
+    tr.childNodes.forEach(elements => {
+        elements.childNodes.forEach(element => {
+            if(element.nodeName == 'INPUT' && element.classList.contains('enabled_edit')){
+                element.value='';
+                element.classList.remove('enabled_edit');
+                element.classList.add('disabled_edit');
+            }
+        });
+    });
+    tr.removeChild(tr.childNodes[19]);
+}
 
 const check_data = (table, column, value) => {
-    var return_sections = document.getElementsByName('return_section');
     if(value != ''){
         $.ajax({
             method:"GET",
@@ -232,11 +363,8 @@ const check_data = (table, column, value) => {
                     alert("Тээврийн хэрэгсэл олдсонгүй, дахин шалгана уу...?");
                     return;
                 }
-                return_sections.forEach(element => {
-                        (table == 'containers' || response['data'][0]['CntrType'] == 'SOC') ? 
-                        element.classList.add('hidden') : 
-                        element.classList.remove('hidden');;
-                    });
+                    if(table == 'containers') 
+                        CntrType = response['data'][0]['CntrType'];
             },
         });
         return;
@@ -305,7 +433,6 @@ function change_data(start_date){
 
 function show_details(data){
     const detail_form = document.getElementById('details_form');
-    console.log(data);
     detail_form.classList.remove('hidden');
     window.onclick = function(event){
         $(document).keyup(function(e) {
@@ -316,13 +443,9 @@ function show_details(data){
         });
     }
     for(const [key, value] of Object.entries(data)){
-        try{
-            if(document.getElementById(key).tagName == "SELECT"){
-                console.log('yes');
-            }
+        try{    
             document.getElementById(key).value = value;
             document.getElementById(key).classList.add('color_black');
-            console.log(typeof(value));
         }
         catch(e){}
     }

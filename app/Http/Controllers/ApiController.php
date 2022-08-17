@@ -18,7 +18,6 @@ class ApiController extends Controller
     }
     public function search_data(Request $request){
         $query = 'select* from orders where ' .$request->all()['query'];
-
         try{
             $data = DB::select($query);
             return response()->json(['data'=>$data]);

@@ -19,6 +19,7 @@
 
 <body onload="index()">
   <div class="hidden popup" id="hidden_form">
+    <h1 class="search-close" id="close_search_button">X</h1>
     <div class="center-popup" id="center_popup">
       @include('search')
     </div>
@@ -90,11 +91,26 @@
       <div class="main-panel">
         <div class="content-wrapper">
           @if (\Session::has('success'))
-            <div class="alert alert-success">
-                <ul>
-                    <li>{!! \Session::get('success') !!}</li>
-                </ul>
+          <div class="row">
+            <div class="col-12">
+              <div class="alert alert-success">
+                  <ul>
+                      <li>{!! \Session::get('success') !!}</li>
+                  </ul>
+              </div>
             </div>
+          </div>
+          @endif
+          @if (\Session::has('error'))
+          <div class="row">
+            <div class="col-12">
+              <div class="alert alert-danger">
+                  <ul>
+                      <li>{!! \Session::get('error') !!}</li>
+                  </ul>
+              </div>
+            </div>
+          </div>
           @endif
           @yield('main')
 

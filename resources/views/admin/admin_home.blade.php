@@ -55,12 +55,12 @@
                                     @foreach ($orders as $order)
                                         <tr>
                                             <td>{{$i}}</td>
-                                            <td><input type="text" name="edit[]" placeholder="{{$order->RefNo}}" class="edit disabled_edit"></td>
-                                            <td><input type="text" name="edit[]" placeholder="{{$order->BINo}}" class="edit disabled_edit"></td>
-                                            <td><input type="text" name="edit[]" placeholder="{{$order->CntrNo}}" class="edit disabled_edit"></td>
-                                            <td><input type="text" name="edit[]" placeholder="{{$order->CargoName}}" class="edit disabled_edit"></td>
-                                            <td><input type="text" name="edit[]" placeholder="{{$order->CneeName}}" class="edit disabled_edit"></td>
-                                            <td><input type="text" name="edit[]" placeholder="{{$order->CneePhone}}" class="edit disabled_edit"></td>
+                                            <td name="RefNo">{{$order->RefNo}}</td>
+                                            <td><input type="text" name="BINo" placeholder="{{$order->BINo}}" class="edit disabled_edit"></td>
+                                            <td><input type="text" name="CtnrNo" placeholder="{{$order->CntrNo}}" class="edit disabled_edit"></td>
+                                            <td><input type="text" name="CargoName" placeholder="{{$order->CargoName}}" class="edit disabled_edit"></td>
+                                            <td><input type="text" name="CneeName" placeholder="{{$order->CneeName}}" class="edit disabled_edit"></td>
+                                            <td><input type="text" name="CneePhone" placeholder="{{$order->CneePhone}}" class="edit disabled_edit"></td>
                                             <td>
                                                 @if ($order->status=='Success')
                                                     <label class="badge badge-success"
@@ -74,7 +74,7 @@
                                                     </label>
                                             </td>
                                             <td class="py-1">
-                                                <img onclick="edit()" src="{{asset('images/assets/edit.png')}}" alt="edit">
+                                                <img onclick="edit(this.parentNode.parentNode)" src="{{asset('images/assets/edit.png')}}" alt="edit">
                                                 <img onclick="show_details({{$order}})" src="{{asset('images/assets/details.png')}}" alt="details">
                                             </td>
                                         </tr>
@@ -87,6 +87,16 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card map-border" style="background: transparent">
+            <div class="card-body map">
+                <img src="{{asset('images/assets/map.png')}}"  width="600px" height="437px">
+                <img src="{{asset('images/assets/shipping.png')}}" class="shipping">
             </div>
         </div>
     </div>

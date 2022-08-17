@@ -28826,7 +28826,7 @@ div.tagsinput span.tag a {
 
 @media (max-width: 991px) {
   .navbar .navbar-menu-wrapper {
-    width: calc(100% - 150px);
+    width: 100%;
     padding-left: 15px;
     padding-right: 11px;
   }
@@ -29833,7 +29833,7 @@ div.tagsinput span.tag a {
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
-    left:150px;
+    left:0;
   }
   .navbar .navbar-brand-wrapper {
     width: 150px;

@@ -11,19 +11,19 @@
                             <div class="col-12 row">
                                 <ul class="nav">
                                     <li class="nav-item active" name="search_ref_type_choice">
-                                        <p class="nav-link" onclick="selection_changed('search_ref_type_choice', 'active', 0)">All</p>
+                                        <p class="nav-link" onclick="selection_changed('search_ref_type_choice', 'active', 0, search_ref_change(this))">All</p>
                                     </li>
                                     <li class="nav-item" name="search_ref_type_choice">
-                                        <p class="nav-link" onclick="selection_changed('search_ref_type_choice', 'active', 1)">Generation</p>
+                                        <p class="nav-link" onclick="selection_changed('search_ref_type_choice', 'active', 1, search_ref_change(this))">Generation</p>
                                     </li>
                                     <li class="nav-item" name="search_ref_type_choice">
-                                        <p class="nav-link" onclick="selection_changed('search_ref_type_choice', 'active', 2)">Japan</p>
+                                        <p class="nav-link" onclick="selection_changed('search_ref_type_choice', 'active', 2, search_ref_change(this))">Japan</p>
                                     </li>
                                     <li class="nav-item" name="search_ref_type_choice">
-                                        <p class="nav-link" onclick="selection_changed('search_ref_type_choice', 'active', 3)">Korean</p>
+                                        <p class="nav-link" onclick="selection_changed('search_ref_type_choice', 'active', 3, search_ref_change(this))">Korean</p>
                                     </li>
                                     <li class="nav-item" name="search_ref_type_choice">
-                                        <p class="nav-link" onclick="selection_changed('search_ref_type_choice', 'active', 4)">Export</p>
+                                        <p class="nav-link" onclick="selection_changed('search_ref_type_choice', 'active', 4, search_ref_change(this))">Export</p>
                                     </li>
                                 </ul>
                             </div>

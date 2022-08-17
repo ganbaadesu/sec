@@ -1,8 +1,12 @@
 @extends('layouts.admin_app')
 
 @section('content')
-<div class="ref-title">
-  <p>Бараа үүсгэх </p>
+<div class="row">
+  <div class="col-12">
+    <div class="ref-title">
+      <p>Бараа үүсгэх </p>
+    </div>
+  </div>
 </div>
   <div class="row">
       <div class="col-12">

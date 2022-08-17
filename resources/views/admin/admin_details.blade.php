@@ -11,7 +11,7 @@
                             <div class="col-md-3">
                                 <div class="form-group row detail-row-column">
                                     <label>Ref No</label>
-                                    <input type="text" class="form-control create" name="RefNo" id="RefNo" required/>
+                                    <input type="text" class="form-control create" name="RefNo" id="RefNo" disabled required/>
                                 </div>
                             </div>
                             <div class="col-md-3">
@@ -115,14 +115,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12">
-                            <p style="float: right" class="btn btn-primary mr-2 ref-next-button" onclick="rel_second_page(true)">Дараагийн хуудас</p>
-                            <p style="float: right" class="btn btn-primary mr-2 ref-back-button" onclick="close_details()">Хаах</p>
-                        </div>
-                    </div>
-                </div>
-                <div style="display:none" id="ref_second">
-                    <div class="row">
                         <div class="col-lg-12 row detail-row">
                             <div class="col-md-3">
                                 <div class="form-group row detail-row-column">
@@ -239,7 +231,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <button style="float: right" class="btn btn-primary mr-2 ref-next-button" type="submit"">Хадгалах</button>
-                            <p style="float: right" class="btn btn-primary mr-2 ref-back-button" onclick="rel_second_page(false)">Буцах</p>
+                            <p style="float: right" class="btn btn-primary mr-2 ref-back-button" onclick="close_details()">Хаах</p>
                         </div>
                     </div>
                 </div>
